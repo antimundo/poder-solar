@@ -4,6 +4,8 @@ extends Button
 @export var money_cost: int = 100
 @onready var world_items = $"../../World/WorldItems"
 
+var dialogue_tween: Tween
+
 func _ready():
 	check_ui($"../../Managers/MoneyManager".money)
 
@@ -31,3 +33,15 @@ func check_ui(available_money: int):
 		$Panel/Label.modulate = Color("989898")
 	else:
 		$Panel/Label.modulate = Color("c7fc76")
+
+func _on_mouse_entered():
+	if dialogue_tween != null:
+		dialogue_tween.kill()
+	dialogue_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	dialogue_tween.tween_property($ComicDialogue, "modulate", Color("ffffff", 1), .2)
+
+func _on_mouse_exited():
+	if dialogue_tween != null:
+		dialogue_tween.kill()
+	dialogue_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	dialogue_tween.tween_property($ComicDialogue, "modulate", Color("ffffff", 0), .2)

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var energy_slider = $"../../BottomPanel/EnergySlider"
+@onready var slider = $"../../BottomPanel/EnergySlider"
 
 var max_energy: int = 60
 var energy: int = 30
@@ -17,5 +17,5 @@ func add_energy(value: int):
 	update_ui()
 
 func update_ui():
-	$"../../BottomPanel/EnergySlider".max_value = max_energy
-	$"../../BottomPanel/EnergySlider".value = energy
+	slider.max_value = max_energy
+	slider.value = energy

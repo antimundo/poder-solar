@@ -1,19 +1,24 @@
-[gd_scene load_steps=24 format=3 uid="uid://l36h55iu8a8e"]
+[gd_scene load_steps=30 format=3 uid="uid://bium0w0bxcd72"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_xfe0u"]
 [ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://sprites/gameplay/sky.svg" id="2_0qqun"]
-[ext_resource type="Script" path="res://scenes/gameplay/EnergyManager.gd" id="2_fges6"]
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_h1u4c"]
 [ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://sprites/gameplay/background.svg" id="2_xeajx"]
+[ext_resource type="Script" path="res://scenes/gameplay/energy_manager.gd" id="3_sdb3u"]
 [ext_resource type="Texture2D" uid="uid://ddyv4xqyi581h" path="res://sprites/ui/button_active.svg" id="4_4q46l"]
 [ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://sprites/ui/button_disabled.svg" id="4_idfva"]
+[ext_resource type="Script" path="res://scenes/gameplay/pollution_manager.gd" id="4_ryeiw"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_i6plt"]
 [ext_resource type="Texture2D" uid="uid://c48ag4ssxr8vy" path="res://sprites/ui/slider/slider_grab.svg" id="9_kcnxg"]
+[ext_resource type="Texture2D" uid="uid://bkbp3aourgms7" path="res://sprites/ui/slider/slider_grab_pollution.svg" id="10_3beg5"]
 [ext_resource type="Texture2D" uid="uid://cvccriudqbaj3" path="res://sprites/ui/slider/slider.svg" id="10_tortf"]
+[ext_resource type="Texture2D" uid="uid://bh7fnor3671a6" path="res://sprites/ui/slider/pollution_ok.svg" id="11_03arj"]
 [ext_resource type="Texture2D" uid="uid://bujvy6jo8pckb" path="res://sprites/ui/slider/energy_out.svg" id="11_s63oe"]
 [ext_resource type="Texture2D" uid="uid://c3bww28tuaens" path="res://sprites/ui/slider/energy_overcharge.svg" id="12_1i5kd"]
+[ext_resource type="Texture2D" uid="uid://cuxibndcc43em" path="res://sprites/ui/slider/pollution_bad.svg" id="12_8opep"]
+[ext_resource type="Texture2D" uid="uid://cmjcs285eqrwg" path="res://sprites/ui/slider/slider_pollution.svg" id="12_a6x7r"]
 [ext_resource type="Texture2D" uid="uid://b31cg1aamphne" path="res://sprites/ui/comic_dialogue.svg" id="15_nqnik"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm64i"]
@@ -21,6 +26,11 @@ bg_color = Color(0.129412, 0.231373, 0.298039, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qga1s"]
 texture = ExtResource("10_tortf")
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_afgud"]
+texture = ExtResource("12_a6x7r")
 expand_margin_top = 6.0
 expand_margin_bottom = 6.0
 
@@ -58,7 +68,10 @@ script = ExtResource("1_xfe0u")
 script = ExtResource("1_dtds0")
 
 [node name="EnergyManager" type="Node" parent="Managers"]
-script = ExtResource("2_fges6")
+script = ExtResource("3_sdb3u")
+
+[node name="PollutionManager" type="Node" parent="Managers"]
+script = ExtResource("4_ryeiw")
 
 [node name="Sky" type="Sprite2D" parent="."]
 modulate = Color(0.046875, 0.148438, 0.304688, 1)
@@ -90,14 +103,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vm64i")
 [node name="EnergySlider" type="HSlider" parent="BottomPanel"]
 layout_mode = 0
 offset_left = 59.0
-offset_top = 12.0
+offset_top = 3.0
 offset_right = 287.0
-offset_bottom = 54.0
+offset_bottom = 45.0
 theme_override_constants/grabber_offset = -13
 theme_override_icons/grabber_disabled = ExtResource("9_kcnxg")
 theme_override_styles/slider = SubResource("StyleBoxTexture_qga1s")
 max_value = 60.0
-value = 40.0
+value = 30.0
 editable = false
 scrollable = false
 
@@ -116,6 +129,35 @@ offset_top = 7.0
 offset_right = 259.0
 offset_bottom = 32.0
 texture = ExtResource("12_1i5kd")
+
+[node name="PollutionSlider" type="HSlider" parent="BottomPanel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 50.0
+offset_right = 287.0
+offset_bottom = 92.0
+theme_override_constants/grabber_offset = -12
+theme_override_icons/grabber_disabled = ExtResource("10_3beg5")
+theme_override_styles/slider = SubResource("StyleBoxTexture_afgud")
+max_value = 50.0
+editable = false
+scrollable = false
+
+[node name="PollutionOk" type="TextureRect" parent="BottomPanel/PollutionSlider"]
+layout_mode = 0
+offset_left = -31.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = 31.0
+texture = ExtResource("11_03arj")
+
+[node name="PollutionBad" type="TextureRect" parent="BottomPanel/PollutionSlider"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 9.0
+offset_right = 260.0
+offset_bottom = 30.0
+texture = ExtResource("12_8opep")
 
 [node name="Money" type="TextureRect" parent="BottomPanel"]
 layout_mode = 0

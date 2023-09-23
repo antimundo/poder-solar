@@ -16,6 +16,9 @@ func set_state(state: end_states):
 		end_states.LOOSE_ENERGY_OVERCHARGE:
 			title.text = "¡Sobrecarga eléctrica!"
 			description.text = "Tanta energía ha quemado el tendido eléctrico :("
+		end_states.LOOSE_POLLUTION:
+			title.text = "¡Demasiada contaminación!"
+			description.text = "Tanta contaminación ha provocado un desastre ecológico"
 
 func _on_button_pressed():
 	var this_gameplay_scene = main_menu.instantiate()

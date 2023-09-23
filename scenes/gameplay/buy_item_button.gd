@@ -21,10 +21,10 @@ func _on_item_instantiated():
 func _on_money_manager_on_money_change(new_quantity):
 	check_ui(new_quantity)
 
-func _on_resource_gathered(money: int, energy: int, _pollution: int):
+func _on_resource_gathered(money: int, energy: int, pollution: int):
 	$"../../Managers/MoneyManager".add_money(money)
 	$"../../Managers/EnergyManager".add_energy(energy)
-	# TODO: Add pollution
+	$"../../Managers/PollutionManager".add_pollution(pollution)
 
 func check_ui(available_money: int):
 	$Panel/Label.text = str(money_cost)

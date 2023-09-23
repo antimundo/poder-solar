@@ -1,0 +1,21 @@
+extends Node
+
+@onready var slider = $"../../BottomPanel/PollutionSlider"
+
+var max_pollution: int = 60
+var pollution: int = 0
+
+func _ready():
+	update_ui()
+
+func add_pollution(value: int):
+	pollution += value
+	if pollution > max_pollution:
+		$"../..".load_end_screen(end_screen.end_states.LOOSE_POLLUTION)
+	elif pollution < 0:
+		pollution = 0
+	update_ui()
+
+func update_ui():
+	slider.max_value = max_pollution
+	slider.value = pollution

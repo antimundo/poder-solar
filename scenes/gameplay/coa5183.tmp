@@ -341,11 +341,11 @@ vertical_alignment = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 43.0
+offset_left = 39.0
 offset_top = 27.0
 offset_bottom = 58.0
 grow_horizontal = 2
-text = "60"
+text = "200"
 vertical_alignment = 1
 
 [node name="Money" type="TextureRect" parent="SellButton"]

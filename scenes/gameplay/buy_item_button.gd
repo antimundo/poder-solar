@@ -14,6 +14,7 @@ func _on_button_down():
 	world_items.add_child(this_item)
 	this_item.on_instantiated.connect(_on_item_instantiated)
 	this_item.on_resource_gathered.connect(_on_resource_gathered)
+	this_item.on_sell.connect(_on_sell)
 
 func _on_item_instantiated():
 	$"../../Managers/MoneyManager".add_money(-money_cost)
@@ -25,6 +26,9 @@ func _on_resource_gathered(money: int, energy: int, pollution: int):
 	$"../../Managers/MoneyManager".add_money(money)
 	$"../../Managers/EnergyManager".add_energy(energy)
 	$"../../Managers/PollutionManager".add_pollution(pollution)
+
+func _on_sell(money: int):
+	$"../../Managers/MoneyManager".add_money(money)
 
 func check_ui(available_money: int):
 	$Panel/Label.text = str(money_cost)

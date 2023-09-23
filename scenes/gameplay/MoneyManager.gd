@@ -2,14 +2,14 @@ extends Node
 
 signal on_money_change(new_quantity)
 
-var money: int = 200
+var money: int = 2000
 var money_to_show: int
 @onready var money_label = $"../../BottomPanel/MoneyLabel"
 
 func _ready():
 	money_to_show = money
 
-func _process(delta):
+func _process(_delta):
 	money_label.text = str(money_to_show)
 
 func add_money(quantity: int):

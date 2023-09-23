@@ -1,13 +1,19 @@
-[gd_scene load_steps=16 format=3 uid="uid://l36h55iu8a8e"]
+[gd_scene load_steps=23 format=3 uid="uid://l36h55iu8a8e"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
+[ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_xfe0u"]
 [ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://sprites/gameplay/sky.svg" id="2_0qqun"]
+[ext_resource type="Script" path="res://scenes/gameplay/EnergyManager.gd" id="2_fges6"]
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_h1u4c"]
 [ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://sprites/gameplay/background.svg" id="2_xeajx"]
 [ext_resource type="Texture2D" uid="uid://ddyv4xqyi581h" path="res://sprites/ui/button_active.svg" id="4_4q46l"]
 [ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://sprites/ui/button_disabled.svg" id="4_idfva"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_i6plt"]
+[ext_resource type="Texture2D" uid="uid://c48ag4ssxr8vy" path="res://sprites/ui/slider/slider_grab.svg" id="9_kcnxg"]
+[ext_resource type="Texture2D" uid="uid://cvccriudqbaj3" path="res://sprites/ui/slider/slider.svg" id="10_tortf"]
+[ext_resource type="Texture2D" uid="uid://bujvy6jo8pckb" path="res://sprites/ui/slider/energy_out.svg" id="11_s63oe"]
+[ext_resource type="Texture2D" uid="uid://c3bww28tuaens" path="res://sprites/ui/slider/energy_overcharge.svg" id="12_1i5kd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm64i"]
 bg_color = Color(0.129412, 0.231373, 0.298039, 1)
@@ -37,12 +43,21 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qga1s"]
+texture = ExtResource("10_tortf")
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+
 [node name="gameplay" type="Node"]
+script = ExtResource("1_xfe0u")
 
 [node name="Managers" type="Node" parent="."]
 
 [node name="MoneyManager" type="Node" parent="Managers"]
 script = ExtResource("1_dtds0")
+
+[node name="EnergyManager" type="Node" parent="Managers"]
+script = ExtResource("2_fges6")
 
 [node name="Sky" type="Sprite2D" parent="."]
 modulate = Color(0.046875, 0.148438, 0.304688, 1)
@@ -106,6 +121,7 @@ offset_bottom = 116.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_b1gbp")
 
 [node name="Money" type="TextureRect" parent="BottomPanel/BuyCoalPowerPlant/Panel"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 8.0
 offset_right = 45.0
@@ -128,19 +144,50 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "100"
 
+[node name="EnergySlider" type="HSlider" parent="BottomPanel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 12.0
+offset_right = 287.0
+offset_bottom = 54.0
+theme_override_constants/grabber_offset = -13
+theme_override_icons/grabber_disabled = ExtResource("9_kcnxg")
+theme_override_styles/slider = SubResource("StyleBoxTexture_qga1s")
+max_value = 60.0
+value = 40.0
+editable = false
+scrollable = false
+
+[node name="EnergyOut" type="TextureRect" parent="BottomPanel/EnergySlider"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 5.0
+offset_right = -8.0
+offset_bottom = 35.0
+texture = ExtResource("11_s63oe")
+
+[node name="EnergyOvercharge" type="TextureRect" parent="BottomPanel/EnergySlider"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 7.0
+offset_right = 259.0
+offset_bottom = 32.0
+texture = ExtResource("12_1i5kd")
+
 [node name="Money" type="TextureRect" parent="BottomPanel"]
+layout_mode = 0
 offset_left = 25.0
-offset_top = 21.0
+offset_top = 95.0
 offset_right = 63.0
-offset_bottom = 52.0
+offset_bottom = 126.0
 texture = ExtResource("5_i6plt")
 
 [node name="MoneyLabel" type="Label" parent="BottomPanel"]
 layout_mode = 0
 offset_left = 74.0
-offset_top = 15.0
+offset_top = 89.0
 offset_right = 170.0
-offset_bottom = 57.0
+offset_bottom = 131.0
 theme_override_font_sizes/font_size = 28
 text = "0"
 

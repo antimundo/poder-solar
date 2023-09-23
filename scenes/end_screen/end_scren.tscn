@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3 uid="uid://410qgxriyahq"]
+
+[ext_resource type="Script" path="res://scenes/end_screen/end_scren.gd" id="1_r6tf2"]
+
+[node name="end_scren" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r6tf2")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -272.5
+offset_top = 150.0
+offset_right = 272.5
+offset_bottom = 274.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -17.0
+offset_right = 273.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Description"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 91.0
+offset_right = 98.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volver al
+menú principal"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

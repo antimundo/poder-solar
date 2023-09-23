@@ -1,6 +1,8 @@
 extends Node2D
 
 signal on_instantiated
+signal on_resource_gathered(money: int, energy: int, pollution: int)
+
 var is_instantiated: bool = false
 
 func _process(_delta):
@@ -15,6 +17,7 @@ func _input(_event):
 	if !is_instantiated and Input.is_action_just_released("click"):
 		if can_be_placed():
 			on_instantiated.emit()
+			$Timer.start()
 			is_instantiated = true
 			self.modulate = Color("ffffff")
 			$CPUParticles2D.emitting = true
@@ -30,3 +33,7 @@ func can_be_placed():
 		if sibling != self and position.distance_to(sibling.position) < 20:
 			return false
 	return true
+
+func _on_timer_timeout():
+	$AnimationPlayer.play("on_gathered")
+	on_resource_gathered.emit(0, 1, 1)

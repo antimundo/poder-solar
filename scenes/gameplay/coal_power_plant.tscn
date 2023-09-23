@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://bsmye6apbaer6"]
+[gd_scene load_steps=16 format=3 uid="uid://bsmye6apbaer6"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/coal_power_plant.gd" id="1_ffjou"]
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_b7v2b"]
 [ext_resource type="Texture2D" uid="uid://clacihq5vpd5q" path="res://sprites/items/power_plant_fire.svg" id="3_phmwj"]
 [ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="4_ubdfm"]
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="5_nwide"]
+[ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://sprites/ui/gather_resource_icons/pollution_up.svg" id="6_6eb8k"]
+[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://sprites/ui/gather_resource_icons/energy_up.svg" id="7_oa2gn"]
 
 [sub_resource type="Animation" id="Animation_kyipx"]
 length = 0.001
@@ -86,6 +88,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GatherIcons:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GatherIcons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_64qve"]
 resource_name = "on_placed"
@@ -103,9 +129,50 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_h37tu"]
+resource_name = "on_gathered"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 0.8),
+"transitions": PackedFloat32Array(0.5, -2, 1, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GatherIcons:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(1.1, 1.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GatherIcons:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l8gg"]
 _data = {
 "RESET": SubResource("Animation_v8mef"),
+"on_gathered": SubResource("Animation_h37tu"),
 "on_placed": SubResource("Animation_64qve")
 }
 
@@ -147,7 +214,24 @@ initial_velocity_max = 16.0
 scale_amount_curve = SubResource("Curve_ip616")
 color = Color(0.196078, 0.141176, 0.0666667, 1)
 
+[node name="GatherIcons" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="PollutionUp" type="Sprite2D" parent="GatherIcons"]
+position = Vector2(-17, -53)
+texture = ExtResource("6_6eb8k")
+
+[node name="PollutionUp2" type="Sprite2D" parent="GatherIcons"]
+position = Vector2(14, -53)
+texture = ExtResource("7_oa2gn")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2l8gg")
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

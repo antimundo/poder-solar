@@ -245,8 +245,10 @@ script = ExtResource("1_uoo3y")
 sell_price = 80
 energy = 1
 pollution = 1
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = []
 
-[node name="PowerPlantShadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 6)
 texture = ExtResource("5_nwide")
@@ -289,7 +291,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-17, -53)
 texture = ExtResource("6_6eb8k")
 
-[node name="PollutionUp2" type="Sprite2D" parent="GatherIcons"]
+[node name="EnergyUp" type="Sprite2D" parent="GatherIcons"]
 position = Vector2(14, -53)
 texture = ExtResource("7_oa2gn")
 

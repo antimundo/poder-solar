@@ -1,10 +1,50 @@
-[gd_scene load_steps=13 format=3 uid="uid://bac3e341auh65"]
+[gd_scene load_steps=18 format=3 uid="uid://1vi1sfanjoua"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_j4y6h"]
-[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_27365"]
-[ext_resource type="Texture2D" uid="uid://bag8t16pfux4f" path="res://sprites/items/tree.svg" id="3_8snm2"]
-[ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://sprites/ui/gather_resource_icons/pollution_down.svg" id="4_dgs1v"]
-[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="8_7wc4m"]
+[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_m7g68"]
+[ext_resource type="Texture2D" uid="uid://cswe3n8qx2jwu" path="res://sprites/items/aerogeneratort_shadow.png" id="2_4bds3"]
+[ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://sprites/items/aerogenerator.svg" id="3_epdjx"]
+[ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://sprites/items/aerogenerator_blades.svg" id="4_1qwjo"]
+[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_eetj3"]
+[ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="5_k2mf7"]
+[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://sprites/ui/gather_resource_icons/energy_up.svg" id="6_pl5x8"]
+
+[sub_resource type="Animation" id="Animation_ht2rs"]
+resource_name = "spin"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ri107"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]
+_data = {
+"RESET": SubResource("Animation_ri107"),
+"spin": SubResource("Animation_ht2rs")
+}
 
 [sub_resource type="Animation" id="Animation_v8mef"]
 length = 0.001
@@ -172,27 +212,41 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="Tree" type="Node2D"]
-script = ExtResource("1_j4y6h")
-sell_price = 40
-pollution = -1
+script = ExtResource("1_m7g68")
+sell_price = 160
+energy = 1
 
 [node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 6)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_27365")
+texture = ExtResource("2_4bds3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -22)
-texture = ExtResource("3_8snm2")
+texture = ExtResource("3_epdjx")
+
+[node name="AerogeneratorBlades" type="Sprite2D" parent="Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("4_1qwjo")
+offset = Vector2(-1, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/AerogeneratorBlades"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_saeju")
+}
+
+[node name="AerogeneratorTop" type="Sprite2D" parent="Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("5_k2mf7")
 
 [node name="GatherIcons" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.5, 0.5)
 
-[node name="PollutionDown" type="Sprite2D" parent="GatherIcons"]
+[node name="EnergyUp" type="Sprite2D" parent="GatherIcons"]
 position = Vector2(0, -53)
-texture = ExtResource("4_dgs1v")
+texture = ExtResource("6_pl5x8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -200,7 +254,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="SellButtonHitbox" type="Control" parent="."]
 layout_mode = 3
@@ -259,7 +313,7 @@ offset_top = 34.0
 offset_right = 54.0
 offset_bottom = 65.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_7wc4m")
+texture = ExtResource("5_eetj3")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="SellButtonHitbox" to="." method="_on_sell_button_hitbox_mouse_entered"]

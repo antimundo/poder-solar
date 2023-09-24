@@ -2,7 +2,7 @@ extends Node
 
 signal on_money_change(new_quantity)
 
-var money: int = 2000
+var money: int = 200
 var money_to_show: int
 @onready var money_label = $"../../BottomPanel/MoneyLabel"
 

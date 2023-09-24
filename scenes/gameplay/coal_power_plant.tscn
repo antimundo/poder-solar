@@ -242,7 +242,7 @@ corner_radius_bottom_left = 8
 
 [node name="CoalPowerPlant" type="Node2D"]
 script = ExtResource("1_uoo3y")
-sell_price = 80
+sell_price = 20
 energy = 1
 pollution = 1
 metadata/_edit_vertical_guides_ = []

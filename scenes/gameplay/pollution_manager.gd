@@ -2,7 +2,7 @@ extends Node
 
 @onready var slider = $"../../BottomPanel/PollutionSlider"
 
-var max_pollution: int = 60
+var max_pollution: int = 50
 var pollution: int = 0
 
 func _ready():

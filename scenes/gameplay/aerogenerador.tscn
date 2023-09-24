@@ -213,7 +213,7 @@ corner_radius_bottom_left = 8
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_m7g68")
-sell_price = 160
+sell_price = 40
 energy = 1
 
 [node name="Shadow" type="Sprite2D" parent="."]

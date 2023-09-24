@@ -38,8 +38,9 @@ func _input(_event):
 			queue_free()
 
 func can_be_placed():
-	if position.x > 775 or position.x < 25\
-		or position.y > 450 or position.y < 130:
+	if (position.x > 775 or position.x < 25\
+		or position.y > 450 or position.y < 130)\
+		or (position.x < 190 and position.y > 270):
 		return false
 	for sibling in get_parent().get_children():
 		if sibling != self and position.distance_to(sibling.position) < 20:

@@ -1,50 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://1vi1sfanjoua"]
+[gd_scene load_steps=16 format=3 uid="uid://r5e76evkpu81"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_m7g68"]
-[ext_resource type="Texture2D" uid="uid://cswe3n8qx2jwu" path="res://sprites/items/aerogeneratort_shadow.png" id="2_4bds3"]
-[ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://sprites/items/aerogenerator.svg" id="3_epdjx"]
-[ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://sprites/items/aerogenerator_blades.svg" id="4_1qwjo"]
-[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_eetj3"]
-[ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="5_k2mf7"]
-[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://sprites/ui/gather_resource_icons/energy_up.svg" id="6_pl5x8"]
+[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_5jba3"]
+[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_qooib"]
+[ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="3_k2gdw"]
+[ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="5_rscuf"]
+[ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://sprites/ui/gather_resource_icons/pollution_up.svg" id="6_i3sms"]
+[ext_resource type="Texture2D" uid="uid://5nh6yf46lflh" path="res://sprites/ui/gather_resource_icons/money_up.svg" id="6_v7u2f"]
+[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="8_gcd7x"]
 
-[sub_resource type="Animation" id="Animation_ht2rs"]
-resource_name = "spin"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_ri107"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]
-_data = {
-"RESET": SubResource("Animation_ri107"),
-"spin": SubResource("Animation_ht2rs")
-}
+[sub_resource type="Curve" id="Curve_ip616"]
+_data = [Vector2(0, 0), 0.0, 2.19945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_v8mef"]
 length = 0.001
@@ -211,42 +177,62 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="Aerogenerator" type="Node2D"]
-script = ExtResource("1_m7g68")
-sell_price = 40
-energy = 1
+[node name="Factory" type="Node2D"]
+script = ExtResource("1_5jba3")
+sell_price = 60
+money = 10
+pollution = 1
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = []
 
 [node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 6)
-texture = ExtResource("2_4bds3")
+texture = ExtResource("2_qooib")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -22)
-texture = ExtResource("3_epdjx")
+position = Vector2(0, -11)
+texture = ExtResource("3_k2gdw")
 
-[node name="AerogeneratorBlades" type="Sprite2D" parent="Sprite"]
-position = Vector2(-4, -20)
-texture = ExtResource("4_1qwjo")
-offset = Vector2(-1, -6)
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(14, -32)
+emitting = false
+amount = 3
+lifetime = 4.0
+texture = ExtResource("5_rscuf")
+direction = Vector2(1, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_ip616")
+color = Color(0.196078, 0.141176, 0.0666667, 1)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/AerogeneratorBlades"]
-autoplay = "spin"
-libraries = {
-"": SubResource("AnimationLibrary_saeju")
-}
-
-[node name="AerogeneratorTop" type="Sprite2D" parent="Sprite"]
-position = Vector2(-4, -20)
-texture = ExtResource("5_k2mf7")
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(0, -36)
+emitting = false
+amount = 3
+lifetime = 4.0
+texture = ExtResource("5_rscuf")
+direction = Vector2(1, -1)
+spread = 15.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_ip616")
+color = Color(0.196078, 0.141176, 0.0666667, 1)
 
 [node name="GatherIcons" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.5, 0.5)
 
-[node name="EnergyUp" type="Sprite2D" parent="GatherIcons"]
-position = Vector2(0, -53)
-texture = ExtResource("6_pl5x8")
+[node name="PollutionUp" type="Sprite2D" parent="GatherIcons"]
+position = Vector2(-17, -53)
+texture = ExtResource("6_i3sms")
+
+[node name="MoneyUp" type="Sprite2D" parent="GatherIcons"]
+position = Vector2(14, -53)
+texture = ExtResource("6_v7u2f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -254,7 +240,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="SellButtonHitbox" type="Control" parent="."]
 layout_mode = 3
@@ -313,7 +299,7 @@ offset_top = 34.0
 offset_right = 54.0
 offset_bottom = 65.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_eetj3")
+texture = ExtResource("8_gcd7x")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="SellButtonHitbox" to="." method="_on_sell_button_hitbox_mouse_entered"]

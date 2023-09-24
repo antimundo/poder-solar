@@ -19,7 +19,7 @@ func _on_button_down():
 func _on_item_instantiated():
 	$"../../Managers/MoneyManager".add_money(-money_cost)
 
-func _on_money_manager_on_money_change(new_quantity):
+func _on_money_manager_money_change(new_quantity):
 	check_ui(new_quantity)
 
 func _on_resource_gathered(money: int, energy: int, pollution: int):

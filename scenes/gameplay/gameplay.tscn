@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bium0w0bxcd72"]
+[gd_scene load_steps=46 format=3 uid="uid://bium0w0bxcd72"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://sprites/items/aerogenerator.svg" id="22_bfv2c"]
 [ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://sprites/items/aerogenerator_blades.svg" id="23_hxkn2"]
 [ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="24_bka20"]
+[ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="29_3i681"]
+[ext_resource type="Texture2D" uid="uid://bk0h1pbal288u" path="res://sprites/ui/comic_dialogue_right.svg" id="29_uot7e"]
 
 [sub_resource type="Animation" id="Animation_ydltr"]
 resource_name = "gather"
@@ -704,9 +706,119 @@ text = "Genera energía limpia lentamente"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="on_money_change" from="Managers/MoneyManager" to="BottomPanel/BuyCoalPowerPlant" method="_on_money_manager_on_money_change"]
-[connection signal="on_money_change" from="Managers/MoneyManager" to="BottomPanel/BuyTree" method="_on_money_manager_on_money_change"]
-[connection signal="on_money_change" from="Managers/MoneyManager" to="BottomPanel/BuyAerogenerator" method="_on_money_manager_on_money_change"]
+[node name="BuyFactory" type="Button" parent="BottomPanel"]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 15.0
+offset_right = 775.0
+offset_bottom = 110.0
+focus_mode = 0
+theme = SubResource("Theme_ycol2")
+script = ExtResource("1_hqkoi")
+gameplay_item = "res://scenes/gameplay/factory.tscn"
+money_cost = 300
+
+[node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyFactory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -27.0
+offset_right = 26.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_3i681")
+
+[node name="Panel" type="Panel" parent="BottomPanel/BuyFactory"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -42.0
+offset_top = -15.0
+offset_right = 42.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1gbp")
+
+[node name="Money" type="TextureRect" parent="BottomPanel/BuyFactory/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 45.0
+offset_bottom = 39.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_i6plt")
+
+[node name="Label" type="Label" parent="BottomPanel/BuyFactory/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -13.0
+offset_right = 32.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "300"
+
+[node name="ComicDialogue" type="TextureRect" parent="BottomPanel/BuyFactory"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -231.0
+offset_right = 60.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("29_uot7e")
+
+[node name="Title" type="Label" parent="BottomPanel/BuyFactory/ComicDialogue"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.215686, 0.223529, 0.137255, 1)
+theme_override_font_sizes/font_size = 19
+text = "Fábrica"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Description" type="Label" parent="BottomPanel/BuyFactory/ComicDialogue"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 49.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.466667, 0.486275, 0.294118, 1)
+theme_override_font_sizes/font_size = 17
+text = "Produce dinero pero 
+también contaminación"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyCoalPowerPlant" method="_on_money_manager_money_change"]
+[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyTree" method="_on_money_manager_money_change"]
+[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyAerogenerator" method="_on_money_manager_money_change"]
+[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyFactory" method="_on_money_manager_money_change"]
 [connection signal="timeout" from="City/Timer" to="City" method="_on_timer_timeout"]
 [connection signal="button_down" from="BottomPanel/BuyCoalPowerPlant" to="BottomPanel/BuyCoalPowerPlant" method="_on_button_down"]
 [connection signal="mouse_entered" from="BottomPanel/BuyCoalPowerPlant" to="BottomPanel/BuyCoalPowerPlant" method="_on_mouse_entered"]
@@ -717,3 +829,6 @@ autowrap_mode = 2
 [connection signal="button_down" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_button_down"]
 [connection signal="mouse_entered" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_mouse_exited"]
+[connection signal="button_down" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_button_down"]
+[connection signal="mouse_entered" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_exited"]

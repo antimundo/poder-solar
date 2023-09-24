@@ -1,6 +1,6 @@
 extends Node
 
-signal on_money_change(new_quantity)
+signal money_change(new_quantity)
 
 var money: int = 200
 var money_to_show: int
@@ -14,7 +14,7 @@ func _process(_delta):
 
 func add_money(quantity: int):
 	money += quantity
-	on_money_change.emit(money)
+	money_change.emit(money)
 	var money_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	money_tween.tween_property(self, "money_to_show", money, .2)
 	if quantity < 0:

@@ -33,6 +33,8 @@ func _input(_event):
 			self.modulate = Color("ffffff")
 			if get_node_or_null("CPUParticles2D") != null:
 				$CPUParticles2D.emitting = true
+			if get_node_or_null("CPUParticles2D2") != null:
+				$CPUParticles2D.emitting = true
 			$AnimationPlayer.play("on_placed")
 		else:
 			queue_free()

@@ -179,7 +179,7 @@ corner_radius_bottom_left = 8
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_5jba3")
-sell_price = 60
+sell_price = 40
 money = 10
 pollution = 1
 metadata/_edit_vertical_guides_ = []

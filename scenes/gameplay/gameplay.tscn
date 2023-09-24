@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bium0w0bxcd72"]
+[gd_scene load_steps=54 format=3 uid="uid://bium0w0bxcd72"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://sprites/ui/button_disabled.svg" id="4_idfva"]
 [ext_resource type="Script" path="res://scenes/gameplay/pollution_manager.gd" id="4_ryeiw"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_i6plt"]
+[ext_resource type="Texture2D" uid="uid://c0iub3ipdr73b" path="res://sprites/gameplay/moon.svg" id="6_l6qx2"]
 [ext_resource type="Texture2D" uid="uid://bd3j81kqyfugv" path="res://sprites/gameplay/city.png" id="7_e6s4j"]
 [ext_resource type="Texture2D" uid="uid://5nh6yf46lflh" path="res://sprites/ui/gather_resource_icons/money_up.svg" id="8_8u1jo"]
 [ext_resource type="Script" path="res://scenes/gameplay/city.gd" id="8_a3otm"]
@@ -30,6 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="24_bka20"]
 [ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="29_3i681"]
 [ext_resource type="Texture2D" uid="uid://bk0h1pbal288u" path="res://sprites/ui/comic_dialogue_right.svg" id="29_uot7e"]
+[ext_resource type="Script" path="res://scenes/slides/slides.gd" id="32_8uv6w"]
+[ext_resource type="Texture2D" uid="uid://bdhnjejqigjjx" path="res://sprites/slides/tutorial_overcharge.jpg" id="33_wconf"]
+[ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://sprites/menus/play_button.svg" id="34_ulfb6"]
 
 [sub_resource type="Animation" id="Animation_l2fbm"]
 length = 0.001
@@ -211,6 +215,24 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qyng"]
+texture = ExtResource("34_ulfb6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyd88"]
+texture = ExtResource("34_ulfb6")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kvj2"]
+texture = ExtResource("34_ulfb6")
+modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qo6v"]
+bg_color = Color(0, 0, 0, 0.784314)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [node name="gameplay" type="Node"]
 script = ExtResource("1_xfe0u")
 
@@ -230,6 +252,11 @@ modulate = Color(0.046875, 0.148438, 0.304688, 1)
 z_index = -3
 position = Vector2(400, 103)
 texture = ExtResource("2_0qqun")
+
+[node name="Moon" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(53, 41)
+texture = ExtResource("6_l6qx2")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
@@ -591,7 +618,7 @@ focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
 gameplay_item = "res://scenes/gameplay/aerogenerador.tscn"
-money_cost = 200
+money_cost = 150
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyAerogenerator"]
 layout_mode = 1
@@ -662,7 +689,7 @@ offset_right = 32.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "200"
+text = "150"
 
 [node name="ComicDialogue" type="TextureRect" parent="BottomPanel/BuyAerogenerator"]
 modulate = Color(1, 1, 1, 0)
@@ -716,7 +743,7 @@ focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
 gameplay_item = "res://scenes/gameplay/factory.tscn"
-money_cost = 300
+money_cost = 200
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyFactory"]
 layout_mode = 1
@@ -770,7 +797,7 @@ offset_right = 32.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "300"
+text = "200"
 
 [node name="ComicDialogue" type="TextureRect" parent="BottomPanel/BuyFactory"]
 modulate = Color(1, 1, 1, 0)
@@ -815,8 +842,74 @@ también contaminación"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyCoalPowerPlant" method="_on_money_manager_money_change"]
+[node name="Slides" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("32_8uv6w")
+
+[node name="TextureRect" type="TextureRect" parent="Slides"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_wconf")
+
+[node name="Button" type="Button" parent="Slides"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 139.0
+offset_top = -249.0
+offset_right = 349.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qyng")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kyd88")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2kvj2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6qyng")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2kvj2")
+
+[node name="Panel" type="Panel" parent="Slides"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 43.0
+offset_right = 750.0
+offset_bottom = 160.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6qo6v")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Slides/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 26
+bbcode_enabled = true
+text = "[center]Pero tampoco te pases, demasiada electricidad producirá una [b]sobrecarga[/b]"
+
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyTree" method="_on_money_manager_money_change"]
+[connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyCoalPowerPlant" method="_on_money_manager_money_change"]
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyAerogenerator" method="_on_money_manager_money_change"]
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyFactory" method="_on_money_manager_money_change"]
 [connection signal="timeout" from="City/Timer" to="City" method="_on_timer_timeout"]
@@ -832,3 +925,4 @@ autowrap_mode = 2
 [connection signal="button_down" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_button_down"]
 [connection signal="mouse_entered" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_exited"]
+[connection signal="pressed" from="Slides/Button" to="Slides" method="_on_button_pressed"]

@@ -10,6 +10,7 @@ signal on_instantiated
 signal on_resource_gathered(money: int, energy: int, pollution: int)
 signal on_sell(money: int)
 
+var is_hovering: bool = false
 var is_instantiated: bool = false
 var sell_button_tween: Tween
 
@@ -23,6 +24,10 @@ func _process(_delta):
 		modulate = Color("ffffff")
 		if !can_be_placed():
 			modulate = Color("ffa092")
+	if $SellButton.visible:
+		if not Rect2(Vector2(), $SellButton.size).has_point($SellButton.get_local_mouse_position()):
+			_on_sell_button_mouse_exited()
+
 
 func _input(_event):
 	if !is_instantiated and Input.is_action_just_released("click"):
@@ -64,6 +69,7 @@ func _on_button_pressed():
 	queue_free()
 
 func _on_sell_button_hitbox_mouse_entered():
+	is_hovering = true
 	if !is_instantiated:
 		return
 	$SellButton.visible = true
@@ -74,6 +80,9 @@ func _on_sell_button_hitbox_mouse_entered():
 	sell_button_tween.tween_property($SellButton, "modulate", Color("ffffff", 1), .2)
 
 func _on_sell_button_mouse_exited():
+	if !is_hovering:
+		return
+	is_hovering = false
 	if sell_button_tween != null:
 		sell_button_tween.kill()
 	sell_button_tween = create_tween().set_trans(Tween.TRANS_SINE)

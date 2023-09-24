@@ -1,11 +1,20 @@
 extends Node2D
 
+@export var sell_price: int
+@export_category("Resources gathered")
+@export var money: int
+@export var energy: int
+@export var pollution: int
+
 signal on_instantiated
 signal on_resource_gathered(money: int, energy: int, pollution: int)
 signal on_sell(money: int)
 
 var is_instantiated: bool = false
 var sell_button_tween: Tween
+
+func _ready():
+	$SellButton/Money2.text = str(sell_price)
 
 func _process(_delta):
 	if !is_instantiated:
@@ -22,7 +31,8 @@ func _input(_event):
 			$Timer.start()
 			is_instantiated = true
 			self.modulate = Color("ffffff")
-			$CPUParticles2D.emitting = true
+			if get_node_or_null("CPUParticles2D") != null:
+				$CPUParticles2D.emitting = true
 			$AnimationPlayer.play("on_placed")
 		else:
 			queue_free()
@@ -38,13 +48,13 @@ func can_be_placed():
 
 func _on_timer_timeout():
 	$AnimationPlayer.play("on_gathered")
-	on_resource_gathered.emit(0, 1, 1)
+	on_resource_gathered.emit(money, energy, pollution)
 
 func _on_button_pressed():
 	$Timer.stop()
 	$SellButton.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	$SellButtonHitbox.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
-	on_sell.emit(60)
+	on_sell.emit(sell_price)
 	$SellButton.visible = false
 	$AnimationPlayer.play("on_sell")
 	await $AnimationPlayer.animation_finished

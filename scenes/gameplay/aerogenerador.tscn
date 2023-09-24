@@ -8,6 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="5_k2mf7"]
 [ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://sprites/ui/gather_resource_icons/energy_up.svg" id="6_pl5x8"]
 
+[sub_resource type="Animation" id="Animation_ri107"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_ht2rs"]
 resource_name = "spin"
 length = 5.0
@@ -23,21 +38,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_ri107"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]

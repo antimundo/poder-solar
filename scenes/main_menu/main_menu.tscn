@@ -1,6 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://o1xj7k6rqtlu"]
+[gd_scene load_steps=19 format=3 uid="uid://o1xj7k6rqtlu"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_uvv0t"]
+[ext_resource type="Texture2D" uid="uid://cnsyrjbggj5tp" path="res://sprites/menus/main_menu.svg" id="2_3s7yi"]
+[ext_resource type="Texture2D" uid="uid://bte75qgd6lnb2" path="res://sprites/menus/game_title.svg" id="3_2gbrx"]
+[ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://sprites/menus/play_button.svg" id="4_etr54"]
+[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="4_t2gni"]
+[ext_resource type="Texture2D" uid="uid://b35y6o14byij6" path="res://sprites/menus/menu_tree.svg" id="5_xh0ih"]
+[ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://sprites/items/aerogenerator.svg" id="7_tqctl"]
+[ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://sprites/items/aerogenerator_blades.svg" id="8_hkhvy"]
+[ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="9_go38b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngoh5"]
+texture = ExtResource("4_etr54")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cpvg"]
+texture = ExtResource("4_etr54")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wmlgx"]
+texture = ExtResource("4_etr54")
+modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
+
+[sub_resource type="Animation" id="Animation_ri107"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ht2rs"]
+resource_name = "spin"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]
+_data = {
+"RESET": SubResource("Animation_ri107"),
+"spin": SubResource("Animation_ht2rs")
+}
+
+[sub_resource type="Animation" id="Animation_dhf41"]
+resource_name = "idle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-0.0523599, 0.0523599]
+}
+
+[sub_resource type="Animation" id="Animation_lkh8f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0872665]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7mdb"]
+_data = {
+"RESET": SubResource("Animation_lkh8f"),
+"idle": SubResource("Animation_dhf41")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,31 +106,305 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uvv0t")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = 36.0
-offset_right = 151.0
-offset_bottom = 162.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Jugar"
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 600.0
+texture = ExtResource("2_3s7yi")
 
-[node name="Label" type="Label" parent="."]
+[node name="GameTitle" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -49.0
-offset_top = 214.0
-offset_right = 49.0
-offset_bottom = 240.0
+offset_left = -223.0
+offset_top = 91.0
+offset_right = 223.0
+offset_bottom = 307.0
 grow_horizontal = 2
-text = "¡Poder Solar!"
+texture = ExtResource("3_2gbrx")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -249.0
+offset_right = 105.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ngoh5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3cpvg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wmlgx")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ngoh5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wmlgx")
+
+[node name="Decoration" type="Node" parent="."]
+
+[node name="Aerogenerator3" type="Node2D" parent="Decoration"]
+position = Vector2(695, 309)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Aerogenerator3"]
+position = Vector2(3.5, -2.5)
+texture = ExtResource("4_t2gni")
+
+[node name="Sprite" type="Sprite2D" parent="Decoration/Aerogenerator3"]
+position = Vector2(5.5, -39.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_tqctl")
+
+[node name="AerogeneratorBlades" type="Sprite2D" parent="Decoration/Aerogenerator3/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("8_hkhvy")
+offset = Vector2(-1, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator3/Sprite/AerogeneratorBlades"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_saeju")
+}
+
+[node name="AerogeneratorTop" type="Sprite2D" parent="Decoration/Aerogenerator3/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("9_go38b")
+
+[node name="Tree6" type="Node2D" parent="Decoration"]
+position = Vector2(642, 414)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree6"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree6"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree6/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree7" type="Node2D" parent="Decoration"]
+position = Vector2(713, 403)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree7"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree7"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree7/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree3" type="Node2D" parent="Decoration"]
+position = Vector2(686, 471)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree3"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree3"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree3/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree4" type="Node2D" parent="Decoration"]
+position = Vector2(607, 467)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree4"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree4"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree4/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree8" type="Node2D" parent="Decoration"]
+position = Vector2(607, 467)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree8"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree8"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree8/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree5" type="Node2D" parent="Decoration"]
+position = Vector2(753, 463)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree5"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree5"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree5/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree" type="Node2D" parent="Decoration"]
+position = Vector2(649, 509)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree2" type="Node2D" parent="Decoration"]
+position = Vector2(723, 509)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree2"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree2"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree2/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Tree9" type="Node2D" parent="Decoration"]
+position = Vector2(723, 509)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Tree9"]
+position = Vector2(-0.5, 2.32489)
+texture = ExtResource("4_t2gni")
+
+[node name="MenuTree" type="Sprite2D" parent="Decoration/Tree9"]
+position = Vector2(-1.58258, -2.65787)
+rotation = -0.0872665
+scale = Vector2(1, 1)
+texture = ExtResource("5_xh0ih")
+offset = Vector2(0, -46)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree9/MenuTree"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_h7mdb")
+}
+
+[node name="Aerogenerator" type="Node2D" parent="Decoration"]
+position = Vector2(83, 509)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Aerogenerator"]
+position = Vector2(3.5, -2.5)
+texture = ExtResource("4_t2gni")
+
+[node name="Sprite" type="Sprite2D" parent="Decoration/Aerogenerator"]
+position = Vector2(5.5, -39.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_tqctl")
+
+[node name="AerogeneratorBlades" type="Sprite2D" parent="Decoration/Aerogenerator/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("8_hkhvy")
+offset = Vector2(-1, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator/Sprite/AerogeneratorBlades"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_saeju")
+}
+
+[node name="AerogeneratorTop" type="Sprite2D" parent="Decoration/Aerogenerator/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("9_go38b")
+
+[node name="Aerogenerator2" type="Node2D" parent="Decoration"]
+position = Vector2(193, 454)
+
+[node name="PowerPlantShadow" type="Sprite2D" parent="Decoration/Aerogenerator2"]
+position = Vector2(3.5, -2.5)
+texture = ExtResource("4_t2gni")
+
+[node name="Sprite" type="Sprite2D" parent="Decoration/Aerogenerator2"]
+position = Vector2(5.5, -39.5)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_tqctl")
+
+[node name="AerogeneratorBlades" type="Sprite2D" parent="Decoration/Aerogenerator2/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("8_hkhvy")
+offset = Vector2(-1, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator2/Sprite/AerogeneratorBlades"]
+autoplay = "spin"
+libraries = {
+"": SubResource("AnimationLibrary_saeju")
+}
+
+[node name="AerogeneratorTop" type="Sprite2D" parent="Decoration/Aerogenerator2/Sprite"]
+position = Vector2(-4, -20)
+texture = ExtResource("9_go38b")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

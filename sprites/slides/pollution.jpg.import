@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c43g40xrfpog5"
-path="res://.godot/imported/play_button - Copy.svg-d000572aafefe4c8c2f97fc38411177a.ctex"
+uid="uid://dqeyi0u7wuyau"
+path="res://.godot/imported/pollution.jpg-dae219bf6fd43b814201e2506db38e49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/menus/play_button - Copy.svg"
-dest_files=["res://.godot/imported/play_button - Copy.svg-d000572aafefe4c8c2f97fc38411177a.ctex"]
+source_file="res://sprites/slides/pollution.jpg"
+dest_files=["res://.godot/imported/pollution.jpg-dae219bf6fd43b814201e2506db38e49.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

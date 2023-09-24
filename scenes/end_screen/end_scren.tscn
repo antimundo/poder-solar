@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://410qgxriyahq"]
+[gd_scene load_steps=7 format=3 uid="uid://410qgxriyahq"]
 
 [ext_resource type="Script" path="res://scenes/end_screen/end_scren.gd" id="1_r6tf2"]
+[ext_resource type="Texture2D" uid="uid://bmq0i68wu0lf4" path="res://sprites/menus/home_button.svg" id="2_mx86p"]
+[ext_resource type="Texture2D" uid="uid://domjgyedkfrcj" path="res://sprites/slides/win.jpg" id="2_nbf4u"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjymd"]
+texture = ExtResource("2_mx86p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o1v52"]
+texture = ExtResource("2_mx86p")
+modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r03eu"]
+texture = ExtResource("2_mx86p")
+modulate_color = Color(0.745098, 0.745098, 0.745098, 1)
 
 [node name="end_scren" type="Control"]
 layout_mode = 3
@@ -10,6 +23,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6tf2")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nbf4u")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -21,7 +49,10 @@ offset_top = 150.0
 offset_right = 272.5
 offset_bottom = 274.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 48
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -39,23 +70,30 @@ offset_right = 273.0
 offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
 text = "Description"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = 91.0
-offset_right = 98.0
-offset_bottom = 206.0
+anchor_bottom = 1.0
+offset_left = -105.5
+offset_top = -255.0
+offset_right = 105.5
+offset_bottom = -54.0
 grow_horizontal = 2
-grow_vertical = 2
-text = "Volver al
-menú principal"
+grow_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mjymd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o1v52")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r03eu")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mjymd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mjymd")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

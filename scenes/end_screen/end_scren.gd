@@ -13,7 +13,7 @@ func set_state(state: end_states):
 	match state:
 		end_states.WIN:
 			title.text = "¡Victoria!"
-			description.text = "Has ganado"
+			description.text = "Conseguiste suministrar electricidad al pueblo :)"
 			image.set_texture(load("res://sprites/slides/win.jpg"))
 		end_states.LOOSE_ENERGY_OVERCHARGE:
 			title.text = "¡Sobrecarga eléctrica!"

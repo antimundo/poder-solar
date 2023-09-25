@@ -3,7 +3,7 @@ extends Node
 @onready var slider = $"../../BottomPanel/EnergySlider"
 
 var max_energy: int = 50
-var energy: int = 25
+var energy: int = 35
 
 func _ready():
 	update_ui()

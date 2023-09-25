@@ -19,14 +19,19 @@ func load_level():
 		0:
 			pass
 		1:
-			pass
+			$ConcertLights.visible = true
+			$City/Timer.set_wait_time(.5)
 		2:
-			pass
+			$ConcertLights.visible = false
+			$Pollution.visible = true
+			$City/Timer.set_wait_time(.4)
+			$City.does_add_pollution = true
 
 func start_level():
 	var moon_tween: Tween = create_tween()
 	$Moon.position.x = 75
 	moon_tween.tween_property($Moon, "position:x", 750, 60)
+	load_level()
 	current_level += 1
 	await moon_tween.finished
 	if current_level >= 3:

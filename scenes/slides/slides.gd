@@ -29,14 +29,14 @@ const game_slides = {
 	},
 	1: {
 		0: {
-			"text": "[center]Hoy dan un concierto ¡Esto va a [b]aumentar[/b] en el consumo eléctrico!",
-			"image": "res://sprites/slides/win.jpg"
+			"text": "[center]Hoy dan un concierto ¡Esto [b]aumentará[/b] el consumo eléctrico!",
+			"image": "res://sprites/slides/concert.jpg"
 		}
 	},
 	2: {
 		0: {
-			"text": "[center]Ahora en el pueblo contaminan",
-			"image": "res://sprites/slides/win.jpg"
+			"text": "[center]Alguien se ha tirado un pedo y ahora el pueblo genera mucha [b]contaminación[/b]",
+			"image": "res://sprites/slides/pollution_slide.jpg"
 		}
 	}
 }

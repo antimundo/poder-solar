@@ -17,11 +17,18 @@ func load_end_screen(end_state: end_screen.end_states):
 func load_level():
 	match current_level:
 		0:
-			pass
+			$AudioStreamPlayer.set_volume_db(-10)
+			$AudioStreamPlayer.stream = load("res://sounds/Frédéric Lardon - Cellphone - 01 MEGATEUF !!.ogg")
+			$AudioStreamPlayer.play()
 		1:
+			$AudioStreamPlayer.set_volume_db(-10)
+			$AudioStreamPlayer.stream = load("res://sounds/concert.ogg")
+			$AudioStreamPlayer.play()
 			$ConcertLights.visible = true
 			$City/Timer.set_wait_time(.5)
 		2:
+			$AudioStreamPlayer.stream = load("res://sounds/Frédéric Lardon - Cellphone - 03 GIGA TEUF HARDCORE.ogg")
+			$AudioStreamPlayer.play()
 			$ConcertLights.visible = false
 			$Pollution.visible = true
 			$City/Timer.set_wait_time(.4)

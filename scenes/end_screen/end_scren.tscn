@@ -1,8 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://410qgxriyahq"]
+[gd_scene load_steps=12 format=3 uid="uid://410qgxriyahq"]
 
 [ext_resource type="Script" path="res://scenes/end_screen/end_scren.gd" id="1_r6tf2"]
 [ext_resource type="Texture2D" uid="uid://bmq0i68wu0lf4" path="res://sprites/menus/home_button.svg" id="2_mx86p"]
 [ext_resource type="Texture2D" uid="uid://domjgyedkfrcj" path="res://sprites/slides/win.jpg" id="2_nbf4u"]
+[ext_resource type="AudioStream" uid="uid://bygxugyy0s6jv" path="res://sounds/Frédéric Lardon - Cellphone - 06 dance dance fragile.ogg" id="4_nvn6p"]
+[ext_resource type="Script" path="res://scenes/main_menu/music_autoplay.gd" id="5_cpedq"]
+
+[sub_resource type="Animation" id="Animation_qbj0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3g4bh"]
+resource_name = "title"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co5ho"]
+_data = {
+"RESET": SubResource("Animation_qbj0f"),
+"title": SubResource("Animation_3g4bh")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjymd"]
 texture = ExtResource("2_mx86p")
@@ -49,6 +89,7 @@ offset_top = 150.0
 offset_right = 272.5
 offset_bottom = 274.0
 grow_horizontal = 2
+pivot_offset = Vector2(272, 62)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.784314)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 4
@@ -56,6 +97,12 @@ theme_override_font_sizes/font_size = 48
 text = "Title"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+autoplay = "title"
+libraries = {
+"": SubResource("AnimationLibrary_co5ho")
+}
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 1
@@ -96,4 +143,10 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_r03eu")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_mjymd")
 theme_override_styles/focus = SubResource("StyleBoxTexture_mjymd")
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nvn6p")
+volume_db = -10.0
+script = ExtResource("5_cpedq")
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

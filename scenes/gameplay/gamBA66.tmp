@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bium0w0bxcd72"]
+[gd_scene load_steps=66 format=3 uid="uid://bium0w0bxcd72"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_h1u4c"]
 [ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://sprites/gameplay/background.svg" id="2_xeajx"]
 [ext_resource type="Script" path="res://scenes/gameplay/energy_manager.gd" id="3_sdb3u"]
-[ext_resource type="AudioStream" uid="uid://4uv5uigl4gsl" path="res://sounds/fall_1.ogg" id="3_uusic"]
 [ext_resource type="Texture2D" uid="uid://ddyv4xqyi581h" path="res://sprites/ui/button_active.svg" id="4_4q46l"]
 [ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://sprites/ui/button_disabled.svg" id="4_idfva"]
 [ext_resource type="Script" path="res://scenes/gameplay/pollution_manager.gd" id="4_ryeiw"]
@@ -38,9 +37,6 @@
 [ext_resource type="Script" path="res://scenes/slides/slides.gd" id="32_8uv6w"]
 [ext_resource type="Texture2D" uid="uid://bdhnjejqigjjx" path="res://sprites/slides/tutorial_overcharge.jpg" id="33_wconf"]
 [ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://sprites/menus/play_button.svg" id="34_ulfb6"]
-[ext_resource type="AudioStream" uid="uid://jwldgek1j4qu" path="res://sounds/coins.ogg" id="36_lgnq0"]
-[ext_resource type="AudioStream" uid="uid://qledq016vl8d" path="res://sounds/crickets.ogg" id="40_8wgja"]
-[ext_resource type="Script" path="res://scenes/main_menu/music_autoplay.gd" id="40_dc1dr"]
 
 [sub_resource type="Animation" id="Animation_l2fbm"]
 length = 0.001
@@ -184,33 +180,6 @@ _data = {
 "city_gather": SubResource("Animation_6twm0")
 }
 
-[sub_resource type="Animation" id="Animation_cmwd3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [3.49066]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.909804, 0.517647, 0.588235)]
-}
-
 [sub_resource type="Animation" id="Animation_l1lc6"]
 resource_name = "concert"
 length = 4.0
@@ -240,13 +209,7 @@ tracks/1/keys = {
 "values": [Color(1, 0.647059, 0.729412, 0.588235), Color(0.25098, 0.764706, 0, 0.588235)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_othlw"]
-_data = {
-"RESET": SubResource("Animation_cmwd3"),
-"concert": SubResource("Animation_l1lc6")
-}
-
-[sub_resource type="Animation" id="Animation_dxjly"]
+[sub_resource type="Animation" id="Animation_cmwd3"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -258,7 +221,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.80125]
+"values": [3.49066]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -270,7 +233,13 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0.913725, 0.505882, 0.588235)]
+"values": [Color(0, 0.909804, 0.517647, 0.588235)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_othlw"]
+_data = {
+"RESET": SubResource("Animation_cmwd3"),
+"concert": SubResource("Animation_l1lc6")
 }
 
 [sub_resource type="Animation" id="Animation_jitxn"]
@@ -302,49 +271,37 @@ tracks/1/keys = {
 "values": [Color(0, 0.866667, 0.929412, 0.588235), Color(0.882353, 0.764706, 0, 0.588235)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_edslq"]
-_data = {
-"RESET": SubResource("Animation_dxjly"),
-"concert": SubResource("Animation_jitxn")
-}
-
-[sub_resource type="Animation" id="Animation_ylr5q"]
+[sub_resource type="Animation" id="Animation_dxjly"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [2.80125]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(66, 356)]
+"values": [Color(0, 0.913725, 0.505882, 0.588235)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edslq"]
+_data = {
+"RESET": SubResource("Animation_dxjly"),
+"concert": SubResource("Animation_jitxn")
 }
 
 [sub_resource type="Animation" id="Animation_sv3hs"]
@@ -386,6 +343,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 0.4, 0.662745, 0.709804)]
+}
+
+[sub_resource type="Animation" id="Animation_ylr5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(66, 356)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kb3mg"]
@@ -457,9 +453,6 @@ script = ExtResource("1_xfe0u")
 
 [node name="MoneyManager" type="Node" parent="Managers"]
 script = ExtResource("1_dtds0")
-
-[node name="PlaceItem" type="AudioStreamPlayer" parent="Managers/MoneyManager"]
-stream = ExtResource("3_uusic")
 
 [node name="EnergyManager" type="Node" parent="Managers"]
 script = ExtResource("3_sdb3u")
@@ -540,6 +533,7 @@ position = Vector2(70, 387)
 modulate = Color(0, 0.909804, 0.517647, 0.588235)
 position = Vector2(-83, -10.9999)
 rotation = 3.49066
+scale = Vector2(1, 1)
 texture = ExtResource("12_gjyrx")
 offset = Vector2(-100, 5)
 
@@ -1114,9 +1108,6 @@ también contaminación"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Sell" type="AudioStreamPlayer" parent="BottomPanel"]
-stream = ExtResource("36_lgnq0")
-
 [node name="Slides" type="Control" parent="."]
 process_mode = 3
 visible = false
@@ -1184,13 +1175,6 @@ bbcode_enabled = true
 text = "[center]Pero tampoco te pases, demasiada electricidad producirá una [b]sobrecarga[/b]"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-script = ExtResource("40_dc1dr")
-
-[node name="AudioStreamPlayerBackground" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("40_8wgja")
-volume_db = -5.0
-autoplay = true
-script = ExtResource("40_dc1dr")
 
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyTree" method="_on_money_manager_money_change"]
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyCoalPowerPlant" method="_on_money_manager_money_change"]
@@ -1210,5 +1194,3 @@ script = ExtResource("40_dc1dr")
 [connection signal="mouse_entered" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_exited"]
 [connection signal="pressed" from="Slides/Button" to="Slides" method="_on_button_pressed"]
-[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
-[connection signal="finished" from="AudioStreamPlayerBackground" to="AudioStreamPlayerBackground" method="_on_finished"]

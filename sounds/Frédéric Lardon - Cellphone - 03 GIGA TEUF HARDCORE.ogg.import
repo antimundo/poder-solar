@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c56eetgqov4eq"
+path="res://.godot/imported/Frédéric Lardon - Cellphone - 03 GIGA TEUF HARDCORE.ogg-dd1c7210f6a1fa2b9f8a8b652c06f3f4.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Frédéric Lardon - Cellphone - 03 GIGA TEUF HARDCORE.ogg"
+dest_files=["res://.godot/imported/Frédéric Lardon - Cellphone - 03 GIGA TEUF HARDCORE.ogg-dd1c7210f6a1fa2b9f8a8b652c06f3f4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

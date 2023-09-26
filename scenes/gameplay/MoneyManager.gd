@@ -21,3 +21,4 @@ func add_money(quantity: int):
 		var color_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 		color_tween.tween_property(money_label, "modulate", Color("ffaaaa"), .05)
 		color_tween.tween_property(money_label, "modulate", Color("ffffff"), .3)
+		$PlaceItem.play()

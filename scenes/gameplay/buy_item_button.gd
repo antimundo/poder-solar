@@ -28,6 +28,7 @@ func _on_resource_gathered(money: int, energy: int, pollution: int):
 	$"../../Managers/PollutionManager".add_pollution(pollution)
 
 func _on_sell(money: int):
+	$"../Sell".play()
 	$"../../Managers/MoneyManager".add_money(money)
 
 func check_ui(available_money: int):

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b354wghtd84fg"
+path="res://.godot/imported/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg-e110697e35e00473da174ac41c35aa6b.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg"
+dest_files=["res://.godot/imported/Frédéric Lardon - Cellphone - 07 lounge de chat.ogg-e110697e35e00473da174ac41c35aa6b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

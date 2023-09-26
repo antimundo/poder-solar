@@ -8,6 +8,7 @@ enum end_states { WIN, LOOSE_POLLUTION, LOOSE_ENERGY_OVERCHARGE\
 @onready var description = $Description
 @onready var main_menu = load("res://scenes/main_menu/main_menu.tscn")
 @onready var image: TextureRect = $Image
+@onready var music = $Music
 
 func set_state(state: end_states):
 	match state:
@@ -15,6 +16,7 @@ func set_state(state: end_states):
 			title.text = "¡Victoria!"
 			description.text = "Conseguiste suministrar electricidad al pueblo :)"
 			image.set_texture(load("res://sprites/slides/win.jpg"))
+			music.stream = load("res://sounds/Frédéric Lardon - Cellphone - 05 funk à 10 balles.ogg")
 		end_states.LOOSE_ENERGY_OVERCHARGE:
 			title.text = "¡Sobrecarga eléctrica!"
 			description.text = "Tanta energía ha quemado el tendido eléctrico :("
@@ -27,6 +29,7 @@ func set_state(state: end_states):
 			title.text = "¡Apagón!"
 			description.text = "El pueblo se ha quedado sin electricidad :("
 			image.set_texture(load("res://sprites/slides/lights_out.jpg"))
+	music.play()
 
 func _on_button_pressed():
 	var this_gameplay_scene = main_menu.instantiate()

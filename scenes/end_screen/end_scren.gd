@@ -13,21 +13,21 @@ enum end_states { WIN, LOOSE_POLLUTION, LOOSE_ENERGY_OVERCHARGE\
 func set_state(state: end_states):
 	match state:
 		end_states.WIN:
-			title.text = "¡Victoria!"
-			description.text = "Conseguiste suministrar electricidad al pueblo :)"
+			title.text = tr("victory_title")
+			description.text = tr("victory_description")
 			image.set_texture(load("res://sprites/slides/win.jpg"))
 			music.stream = load("res://sounds/Frédéric Lardon - Cellphone - 05 funk à 10 balles.ogg")
 		end_states.LOOSE_ENERGY_OVERCHARGE:
-			title.text = "¡Sobrecarga eléctrica!"
-			description.text = "Tanta energía ha quemado el tendido eléctrico :("
+			title.text = tr("loose_energy_overcharge_title")
+			description.text = tr("loose_energy_overcharge_description")
 			image.set_texture(load("res://sprites/slides/fire.jpg"))
 		end_states.LOOSE_POLLUTION:
-			title.text = "¡Contaminación!"
-			description.text = "Tanta contaminación ha provocado un desastre ecológico :("
+			title.text = tr("loose_pollution_title")
+			description.text = tr("loose_pollution_description")
 			image.set_texture(load("res://sprites/slides/pollution.jpg"))
 		end_states.LOOSE_ENERGY_OUT:
-			title.text = "¡Apagón!"
-			description.text = "El pueblo se ha quedado sin electricidad :("
+			title.text = tr("loose_energy_out_title")
+			description.text = tr("loose_energy_out_description")
 			image.set_texture(load("res://sprites/slides/lights_out.jpg"))
 	music.play()
 

@@ -419,5 +419,15 @@ libraries = {
 position = Vector2(-4, -20)
 texture = ExtResource("9_go38b")
 
+[node name="ToggleLanguage" type="Button" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 531.0
+offset_right = 178.0
+offset_bottom = 578.0
+focus_mode = 0
+text = "language"
+
 [connection signal="finished" from="Music" to="Music" method="_on_finished"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ToggleLanguage" to="." method="_on_toggle_language_pressed"]

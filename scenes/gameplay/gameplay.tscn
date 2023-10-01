@@ -756,7 +756,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.215686, 0.223529, 0.137255, 1)
 theme_override_font_sizes/font_size = 19
-text = "Árbol"
+text = "tree_title"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -769,7 +769,7 @@ offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.466667, 0.486275, 0.294118, 1)
 theme_override_font_sizes/font_size = 17
-text = "Reduce la contaminación poco a poco"
+text = "tree_description"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -863,7 +863,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.215686, 0.223529, 0.137255, 1)
 theme_override_font_sizes/font_size = 19
-text = "Central termoeléctrica"
+text = "coal_title"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -876,7 +876,7 @@ offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.466667, 0.486275, 0.294118, 1)
 theme_override_font_sizes/font_size = 17
-text = "Produce electricidad pero también contaminación"
+text = "coal_description"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -988,7 +988,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.215686, 0.223529, 0.137255, 1)
 theme_override_font_sizes/font_size = 19
-text = "Aerogenerador"
+text = "turbine_title"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1001,7 +1001,7 @@ offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.466667, 0.486275, 0.294118, 1)
 theme_override_font_sizes/font_size = 17
-text = "Genera energía limpia lentamente"
+text = "turbine_description"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1096,7 +1096,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.215686, 0.223529, 0.137255, 1)
 theme_override_font_sizes/font_size = 19
-text = "Fábrica"
+text = "factory_title"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1109,8 +1109,7 @@ offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.466667, 0.486275, 0.294118, 1)
 theme_override_font_sizes/font_size = 17
-text = "Produce dinero pero 
-también contaminación"
+text = "factory_description"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -1182,6 +1181,7 @@ theme_override_font_sizes/bold_italics_font_size = 26
 theme_override_font_sizes/mono_font_size = 26
 bbcode_enabled = true
 text = "[center]Pero tampoco te pases, demasiada electricidad producirá una [b]sobrecarga[/b]"
+autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("40_dc1dr")

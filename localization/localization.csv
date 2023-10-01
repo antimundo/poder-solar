@@ -1,0 +1,26 @@
+keys,es,en,fr
+language,Idioma: Español,Language: English,Langue: Française
+victory_title,¡Victoria!,Victory!,Victoire!
+victory_description,Conseguiste suministrar electricidad al pueblo :),You managed to supply electricity to the town :),Vous avez réussi à approvisionner la ville en électricité :)
+loose_energy_overcharge_title,¡Sobrecarga eléctrica!,Electrical overload!,Surcharge électrique!
+loose_energy_overcharge_description,Tanta energía ha quemado el tendido eléctrico :(,So much energy has burned the power lines :(,Tant d'énergie a brûlé les lignes électriques :(
+loose_pollution_title,¡Contaminación!,Pollution!,Pollution!
+loose_pollution_description,Tanta contaminación ha provocado un desastre ecológico :(,So much pollution has caused an ecological disaster :(,Tant de pollution a provoqué un désastre écologique :(
+loose_energy_out_title,¡Apagón!,Blackout!,Coupure électrique!
+loose_energy_out_description,El pueblo se ha quedado sin electricidad :(,The village has run out of electricity :(,Le village n'a plus d'électricité :(
+slide_0_0,¡Han instalado [b]placas solares[/b] en el pueblo!,They have installed [b]solar panels[/b] in the town!,Ils ont installé des panneaux solaires dans la ville!
+slide_0_1,Pero cuando [b]cae la noche[/b] nos quedamos sin electricidad :(,But when [b]night falls[/b] we run out of electricity :(,Mais quand la [b]nuit tombe[/b] on manque d'électricité \n:(
+slide_0_2,[b]Arrastra[/b] objetos a la pantalla para comprarlos,[b]Drag[/b] objects to the screen to buy them,[b]Faites glisser[/b] des objets vers l'écran pour les acheter
+slide_0_3,No te quedes sin [b]electricidad[/b] o habrá un apagón,Don't run out of [b]electricity[/b] or there will be a blackout,Ne manquez pas d'[b]électricité[/b] sinon il y aura une panne d'électricité
+slide_0_4,"Pero no te pases, demasiada electricidad producirá una [b]sobrecarga[/b]","But don't overdo it, too much electricity will cause an [b]overload[/b]","Mais n'en faites pas trop, trop d'électricité provoquerait une [b]surcharge[/b]"
+slide_0_5,"Por último, no dejes que suba la [b]contaminación[/b] o habrá un desastre ecológico","Finally, don't let [b]pollution[/b] rise or there will be an ecological disaster","Enfin, ne laissez pas la [b]pollution[/b] augmenter sinon il y aura une catastrophe écologique"
+slide_1_0,Hoy dan un concierto ¡Esto [b]aumentará[/b] el consumo eléctrico!,Today they are giving a concert. This will [b]increase[/b] electricity consumption!,"Aujourd'hui, ils donnent un concert. Cela va [b]augmenter[/b] la consommation d’électricité!"
+slide_2_0,Alguien se ha tirado un pedo y ahora el pueblo genera mucha [b]contaminación[/b],Someone farted and now the town generates a lot of [b]pollution[/b],Quelqu'un a pété et maintenant la ville génère beaucoup de [b]pollution[/b]
+tree_title,Árbol,Tree,Arbre
+tree_description,Reduce la contaminación\npoco a poco,Reduce pollution\nlittle by little,Réduire la pollution petit à petit
+coal_title,Central termoeléctrica,Thermal power plant,Centrale thermique
+coal_description,Produce electricidad pero también contaminación,Produces electricity \nbut also pollution,Produit de l'électricité mais aussi de la pollution
+turbine_title,Aerogenerador,Wind turbine,Éolienne
+turbine_description,Genera energía limpia lentamente,Generate clean energy\nslowly,Générer lentement de l’énergie propre
+factory_title,Fábrica,Factory,Usine
+factory_description,Produce dinero pero\ntambién contaminación,It makes money but\nalso pollution,Ça rapporte de l'argent mais\naussi la pollution

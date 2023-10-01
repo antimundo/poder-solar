@@ -3,39 +3,39 @@ extends Control
 const game_slides = {
 	0: {
 		0: {
-			"text": "[center]¡Han instalado [b]placas solares[/b] en el pueblo!",
+			"text": "slide_0_0",
 			"image": "res://sprites/slides/win.jpg"
 		},
 		1: {
-			"text": "[center]Pero cuando [b]cae la noche[/b] nos quedamos sin electricidad :(",
+			"text": "slide_0_1",
 			"image": "res://sprites/slides/lights_out.jpg"
 		},
 		2: {
-			"text": "[center][b]Arrastra[/b] objetos a la pantalla para comprarlos",
+			"text": "slide_0_2",
 			"image": "res://sprites/slides/tutorial.jpg"
 		},
 		3: {
-			"text": "[center]No te quedes sin [b]electricidad[/b] o habrá un apagón",
+			"text": "slide_0_3",
 			"image": "res://sprites/slides/tutorial_lowenergy.jpg"
 		},
 		4: {
-			"text": "[center]Pero no te pases, demasiada electricidad producirá una [b]sobrecarga[/b]",
+			"text": "slide_0_4",
 			"image": "res://sprites/slides/tutorial_overcharge.jpg"
 		},
 		5: {
-			"text": "[center]Por último, no dejes que suba la [b]contaminación[/b] o habrá un desastre ecológico",
+			"text": "slide_0_5",
 			"image": "res://sprites/slides/tutorial_pollution.jpg"
 		}
 	},
 	1: {
 		0: {
-			"text": "[center]Hoy dan un concierto ¡Esto [b]aumentará[/b] el consumo eléctrico!",
+			"text": "slide_1_0",
 			"image": "res://sprites/slides/concert.jpg"
 		}
 	},
 	2: {
 		0: {
-			"text": "[center]Alguien se ha tirado un pedo y ahora el pueblo genera mucha [b]contaminación[/b]",
+			"text": "slide_2_0",
 			"image": "res://sprites/slides/pollution_slide.jpg"
 		}
 	}
@@ -53,7 +53,7 @@ func _on_button_pressed():
 
 func load_slide(level: int, slide: int):
 	$TextureRect.texture = load(game_slides[level][slide].image)
-	$Panel/RichTextLabel.text = game_slides[level][slide].text
+	$Panel/RichTextLabel.text = "[center]%s" % TranslationServer.tr(game_slides[level][slide].text)
 
 func load_next_slide():
 	current_slide += 1

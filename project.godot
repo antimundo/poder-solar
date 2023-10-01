@@ -29,6 +29,11 @@ click={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localization.es.translation", "res://localization/localization.fr.translation", "res://localization/localization.en.translation")
+locale/fallback="es"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

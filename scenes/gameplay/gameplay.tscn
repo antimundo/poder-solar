@@ -544,10 +544,10 @@ texture = ExtResource("12_gjyrx")
 offset = Vector2(-100, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConcertLights/ConcertLight"]
-autoplay = "concert"
 libraries = {
 "": SubResource("AnimationLibrary_othlw")
 }
+autoplay = "concert"
 
 [node name="ConcertLight2" type="Sprite2D" parent="ConcertLights"]
 modulate = Color(0, 0.913725, 0.505882, 0.588235)
@@ -557,10 +557,10 @@ texture = ExtResource("12_gjyrx")
 offset = Vector2(-100, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConcertLights/ConcertLight2"]
-autoplay = "concert"
 libraries = {
 "": SubResource("AnimationLibrary_edslq")
 }
+autoplay = "concert"
 
 [node name="Pollution" type="Sprite2D" parent="."]
 visible = false

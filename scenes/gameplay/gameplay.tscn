@@ -432,16 +432,16 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kvj2"]
+texture = ExtResource("34_ulfb6")
+modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qyng"]
 texture = ExtResource("34_ulfb6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyd88"]
 texture = ExtResource("34_ulfb6")
 modulate_color = Color(0.862745, 0.862745, 0.862745, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kvj2"]
-texture = ExtResource("34_ulfb6")
-modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qo6v"]
 bg_color = Color(0, 0, 0, 0.784314)
@@ -1150,11 +1150,11 @@ offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_6qyng")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2kvj2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6qyng")
 theme_override_styles/hover = SubResource("StyleBoxTexture_kyd88")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2kvj2")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_6qyng")
-theme_override_styles/focus = SubResource("StyleBoxTexture_2kvj2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qyng")
 
 [node name="Panel" type="Panel" parent="Slides"]
 layout_mode = 0
@@ -1174,11 +1174,11 @@ offset_top = 21.0
 offset_right = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 26
 theme_override_font_sizes/normal_font_size = 26
 theme_override_font_sizes/bold_font_size = 26
-theme_override_font_sizes/italics_font_size = 26
-theme_override_font_sizes/bold_italics_font_size = 26
-theme_override_font_sizes/mono_font_size = 26
 bbcode_enabled = true
 text = "[center]Pero tampoco te pases, demasiada electricidad producirá una [b]sobrecarga[/b]"
 autowrap_mode = 2

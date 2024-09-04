@@ -1,5 +1,5 @@
 # Poder Solar
-Game developed for the [Spain Game Dev Jam 2023](https://itch.io/jam/indie-spain-jam-23/rate/2279655) by [Antimundo](https://antimundo.es/) using Godot 4.2. [Link to the game.](https://antimundo.itch.io/poder-solar)
+Game developed for the [Spain Game Dev Jam 2023](https://itch.io/jam/indie-spain-jam-23/rate/2279655) by [Antimundo](https://antimundo.es/) using Godot 4.3. [Link to the game.](https://antimundo.itch.io/poder-solar)
 
 # License
 This game was done in very little time for a gamejam, so don't expect the code to be too great.

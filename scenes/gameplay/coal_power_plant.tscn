@@ -264,10 +264,10 @@ texture = ExtResource("3_phmwj")
 offset = Vector2(0, -4.825)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerPlantFire"]
-autoplay = "fire_idle"
 libraries = {
 "": SubResource("AnimationLibrary_fir4p")
 }
+autoplay = "fire_idle"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(-1, -31)
@@ -326,11 +326,11 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(42, 37.495)
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_l7nmv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_l7nmv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kgpov")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_l7nmv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l7nmv")
 
 [node name="SellLabel" type="Label" parent="SellButton"]
 layout_mode = 1

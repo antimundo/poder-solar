@@ -99,10 +99,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
-autoplay = "title"
 libraries = {
 "": SubResource("AnimationLibrary_co5ho")
 }
+autoplay = "title"
 
 [node name="Description" type="Label" parent="."]
 layout_mode = 1
@@ -137,11 +137,11 @@ offset_bottom = -54.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_mjymd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mjymd")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_mjymd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_o1v52")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_r03eu")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_mjymd")
-theme_override_styles/focus = SubResource("StyleBoxTexture_mjymd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mjymd")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_nvn6p")

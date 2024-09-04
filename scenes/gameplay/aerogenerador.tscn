@@ -231,10 +231,10 @@ texture = ExtResource("4_1qwjo")
 offset = Vector2(-1, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/AerogeneratorBlades"]
-autoplay = "spin"
 libraries = {
 "": SubResource("AnimationLibrary_saeju")
 }
+autoplay = "spin"
 
 [node name="AerogeneratorTop" type="Sprite2D" parent="Sprite"]
 position = Vector2(-4, -20)
@@ -279,11 +279,11 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(42, 37.495)
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_l7nmv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_l7nmv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kgpov")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_l7nmv")
-theme_override_styles/focus = SubResource("StyleBoxFlat_l7nmv")
+theme_override_styles/normal = SubResource("StyleBoxFlat_l7nmv")
 
 [node name="SellLabel" type="Label" parent="SellButton"]
 layout_mode = 1

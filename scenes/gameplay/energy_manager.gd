@@ -5,10 +5,10 @@ extends Node
 var max_energy: int = 50
 var energy: int = 35
 
-func _ready():
+func _ready() -> void:
 	update_ui()
 
-func add_energy(value: int):
+func add_energy(value: int) -> void:
 	energy += value
 	if energy > max_energy:
 		$"../..".load_end_screen(end_screen.end_states.LOOSE_ENERGY_OVERCHARGE)
@@ -16,6 +16,6 @@ func add_energy(value: int):
 		$"../..".load_end_screen(end_screen.end_states.LOOSE_ENERGY_OUT)
 	update_ui()
 
-func update_ui():
+func update_ui() -> void:
 	slider.max_value = max_energy
 	slider.value = energy

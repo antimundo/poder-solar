@@ -1,6 +1,6 @@
 [gd_scene load_steps=70 format=3 uid="uid://bium0w0bxcd72"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/MoneyManager.gd" id="1_dtds0"]
+[ext_resource type="Script" path="res://scenes/gameplay/money_manager.gd" id="1_dtds0"]
 [ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
 [ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_xfe0u"]
 [ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://sprites/gameplay/sky.svg" id="2_0qqun"]

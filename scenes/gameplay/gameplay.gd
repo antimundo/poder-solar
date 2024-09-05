@@ -5,16 +5,16 @@ extends Node
 
 var current_level: int = 0
 
-func _ready():
+func _ready() -> void:
 	load_slides()
 
-func load_end_screen(end_state: end_screen.end_states):
+func load_end_screen(end_state: end_screen.end_states) -> void:
 	var this_scene = end_scene.instantiate()
 	get_tree().root.add_child(this_scene)
 	this_scene.set_state(end_state)
 	queue_free()
 
-func load_level():
+func load_level() -> void:
 	match current_level:
 		0:
 			$AudioStreamPlayer.set_volume_db(-10)
@@ -34,7 +34,7 @@ func load_level():
 			$City/Timer.set_wait_time(.4)
 			$City.does_add_pollution = true
 
-func start_level():
+func start_level() -> void:
 	var moon_tween: Tween = create_tween()
 	$Moon.position.x = 75
 	moon_tween.tween_property($Moon, "position:x", 750, 60)
@@ -46,7 +46,7 @@ func start_level():
 	else:
 		load_slides()
 
-func load_slides():
+func load_slides() -> void:
 	get_tree().paused = true
 	slides.visible = true
 	slides.load_first_slide(current_level)

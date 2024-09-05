@@ -1,6 +1,6 @@
 extends Control
 
-const game_slides = {
+const game_slides: Dictionary = {
 	0: {
 		0: {
 			"text": "slide_0_0",
@@ -45,17 +45,17 @@ const game_slides = {
 
 var current_slide: int = 0
 
-func load_first_slide(level: int):
+func load_first_slide(level: int) -> void:
 	load_slide(level, 0)
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	load_next_slide()
 
-func load_slide(level: int, slide: int):
+func load_slide(level: int, slide: int) -> void:
 	$TextureRect.texture = load(game_slides[level][slide].image)
 	$Panel/RichTextLabel.text = "[center]%s" % TranslationServer.tr(game_slides[level][slide].text)
 
-func load_next_slide():
+func load_next_slide() -> void:
 	current_slide += 1
 	var current_level: int = $"..".current_level
 	if current_slide < game_slides[current_level].size():

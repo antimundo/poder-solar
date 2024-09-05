@@ -6,13 +6,13 @@ var money: int = 250
 var money_to_show: int
 @onready var money_label = $"../../BottomPanel/MoneyLabel"
 
-func _ready():
+func _ready() -> void:
 	money_to_show = money
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	money_label.text = str(money_to_show)
 
-func add_money(quantity: int):
+func add_money(quantity: int) -> void:
 	money += quantity
 	money_change.emit(money)
 	var money_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)

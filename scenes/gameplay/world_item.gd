@@ -14,10 +14,10 @@ var is_hovering: bool = false
 var is_instantiated: bool = false
 var sell_button_tween: Tween
 
-func _ready():
+func _ready() -> void:
 	$SellButton/Money2.text = str(sell_price)
 
-func _process(_delta):
+func _process(_delta: float) -> void:
 	if !is_instantiated:
 		var mouse_position = get_viewport().get_mouse_position()
 		position = mouse_position
@@ -29,7 +29,7 @@ func _process(_delta):
 			_on_sell_button_mouse_exited()
 
 
-func _input(_event):
+func _input(_event: InputEvent) -> void:
 	if !is_instantiated and Input.is_action_just_released("click"):
 		if can_be_placed():
 			on_instantiated.emit()
@@ -44,7 +44,7 @@ func _input(_event):
 		else:
 			queue_free()
 
-func can_be_placed():
+func can_be_placed() -> bool:
 	if (position.x > 775 or position.x < 25\
 		or position.y > 450 or position.y < 130)\
 		or (position.x < 190 and position.y > 270):
@@ -54,11 +54,11 @@ func can_be_placed():
 			return false
 	return true
 
-func _on_timer_timeout():
+func _on_timer_timeout() -> void:
 	$AnimationPlayer.play("on_gathered")
 	on_resource_gathered.emit(money, energy, pollution)
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	$Timer.stop()
 	$SellButton.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 	$SellButtonHitbox.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
@@ -68,7 +68,7 @@ func _on_button_pressed():
 	await $AnimationPlayer.animation_finished
 	queue_free()
 
-func _on_sell_button_hitbox_mouse_entered():
+func _on_sell_button_hitbox_mouse_entered() -> void:
 	is_hovering = true
 	if !is_instantiated:
 		return
@@ -79,7 +79,7 @@ func _on_sell_button_hitbox_mouse_entered():
 	sell_button_tween = create_tween().set_trans(Tween.TRANS_SINE)
 	sell_button_tween.tween_property($SellButton, "modulate", Color("ffffff", 1), .2)
 
-func _on_sell_button_mouse_exited():
+func _on_sell_button_mouse_exited() -> void:
 	if !is_hovering:
 		return
 	is_hovering = false

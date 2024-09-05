@@ -10,7 +10,7 @@ enum end_states { WIN, LOOSE_POLLUTION, LOOSE_ENERGY_OVERCHARGE\
 @onready var image: TextureRect = $Image
 @onready var music = $Music
 
-func set_state(state: end_states):
+func set_state(state: end_states) -> void:
 	match state:
 		end_states.WIN:
 			title.text = tr("victory_title")
@@ -31,7 +31,7 @@ func set_state(state: end_states):
 			image.set_texture(load("res://sprites/slides/lights_out.jpg"))
 	music.play()
 
-func _on_button_pressed():
+func _on_button_pressed() -> void:
 	var this_gameplay_scene = main_menu.instantiate()
 	get_tree().root.add_child(this_gameplay_scene)
 	queue_free()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://r5e76evkpu81"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_5jba3"]
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_5jba3"]
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_qooib"]
 [ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="3_k2gdw"]
 [ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="5_rscuf"]
@@ -157,10 +157,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l8gg"]
 _data = {
-"RESET": SubResource("Animation_v8mef"),
-"on_gathered": SubResource("Animation_h37tu"),
-"on_placed": SubResource("Animation_64qve"),
-"on_sell": SubResource("Animation_fwxko")
+&"RESET": SubResource("Animation_v8mef"),
+&"on_gathered": SubResource("Animation_h37tu"),
+&"on_placed": SubResource("Animation_64qve"),
+&"on_sell": SubResource("Animation_fwxko")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7nmv"]
@@ -198,8 +198,8 @@ texture = ExtResource("3_k2gdw")
 position = Vector2(14, -32)
 emitting = false
 amount = 3
-lifetime = 4.0
 texture = ExtResource("5_rscuf")
+lifetime = 4.0
 direction = Vector2(1, -1)
 spread = 15.0
 gravity = Vector2(0, 0)
@@ -212,8 +212,8 @@ color = Color(0.196078, 0.141176, 0.0666667, 1)
 position = Vector2(0, -36)
 emitting = false
 amount = 3
-lifetime = 4.0
 texture = ExtResource("5_rscuf")
+lifetime = 4.0
 direction = Vector2(1, -1)
 spread = 15.0
 gravity = Vector2(0, 0)
@@ -236,7 +236,7 @@ texture = ExtResource("6_v7u2f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2l8gg")
+&"": SubResource("AnimationLibrary_2l8gg")
 }
 
 [node name="Timer" type="Timer" parent="."]

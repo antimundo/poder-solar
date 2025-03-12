@@ -1,21 +1,21 @@
 [gd_scene load_steps=70 format=3 uid="uid://bium0w0bxcd72"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/money_manager.gd" id="1_dtds0"]
-[ext_resource type="Script" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
-[ext_resource type="Script" path="res://scenes/gameplay/gameplay.gd" id="1_xfe0u"]
+[ext_resource type="Script" uid="uid://dbkd8crya5rqi" path="res://scenes/gameplay/money_manager.gd" id="1_dtds0"]
+[ext_resource type="Script" uid="uid://c7ixr0x75sj5n" path="res://scenes/gameplay/buy_item_button.gd" id="1_hqkoi"]
+[ext_resource type="Script" uid="uid://cvdgtlvtrp85h" path="res://scenes/gameplay/gameplay.gd" id="1_xfe0u"]
 [ext_resource type="Texture2D" uid="uid://xu4q4ephv6jg" path="res://sprites/gameplay/sky.svg" id="2_0qqun"]
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_h1u4c"]
 [ext_resource type="Texture2D" uid="uid://66xs5d83w8mx" path="res://sprites/gameplay/background.svg" id="2_xeajx"]
-[ext_resource type="Script" path="res://scenes/gameplay/energy_manager.gd" id="3_sdb3u"]
+[ext_resource type="Script" uid="uid://g8ixh3kbilpr" path="res://scenes/gameplay/energy_manager.gd" id="3_sdb3u"]
 [ext_resource type="AudioStream" uid="uid://4uv5uigl4gsl" path="res://sounds/fall_1.ogg" id="3_uusic"]
 [ext_resource type="Texture2D" uid="uid://ddyv4xqyi581h" path="res://sprites/ui/button_active.svg" id="4_4q46l"]
 [ext_resource type="Texture2D" uid="uid://hmnxlkm8b7rk" path="res://sprites/ui/button_disabled.svg" id="4_idfva"]
-[ext_resource type="Script" path="res://scenes/gameplay/pollution_manager.gd" id="4_ryeiw"]
+[ext_resource type="Script" uid="uid://dyjiffdne7gda" path="res://scenes/gameplay/pollution_manager.gd" id="4_ryeiw"]
 [ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="5_i6plt"]
 [ext_resource type="Texture2D" uid="uid://c0iub3ipdr73b" path="res://sprites/gameplay/moon.svg" id="6_l6qx2"]
 [ext_resource type="Texture2D" uid="uid://bd3j81kqyfugv" path="res://sprites/gameplay/city.png" id="7_e6s4j"]
 [ext_resource type="Texture2D" uid="uid://5nh6yf46lflh" path="res://sprites/ui/gather_resource_icons/money_up.svg" id="8_8u1jo"]
-[ext_resource type="Script" path="res://scenes/gameplay/city.gd" id="8_a3otm"]
+[ext_resource type="Script" uid="uid://t61hcydljn24" path="res://scenes/gameplay/city.gd" id="8_a3otm"]
 [ext_resource type="Texture2D" uid="uid://c48ag4ssxr8vy" path="res://sprites/ui/slider/slider_grab.svg" id="9_kcnxg"]
 [ext_resource type="Texture2D" uid="uid://dnyty6l6hnst7" path="res://sprites/ui/gather_resource_icons/energy_down.svg" id="9_pp0fp"]
 [ext_resource type="Texture2D" uid="uid://bkbp3aourgms7" path="res://sprites/ui/slider/slider_grab_pollution.svg" id="10_3beg5"]
@@ -35,12 +35,12 @@
 [ext_resource type="Texture2D" uid="uid://bby3ih3lc3qdq" path="res://sprites/items/aerogenerator_top.svg" id="24_bka20"]
 [ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="29_3i681"]
 [ext_resource type="Texture2D" uid="uid://bk0h1pbal288u" path="res://sprites/ui/comic_dialogue_right.svg" id="29_uot7e"]
-[ext_resource type="Script" path="res://scenes/slides/slides.gd" id="32_8uv6w"]
+[ext_resource type="Script" uid="uid://ckjknxe6dqbiu" path="res://scenes/slides/slides.gd" id="32_8uv6w"]
 [ext_resource type="Texture2D" uid="uid://bdhnjejqigjjx" path="res://sprites/slides/tutorial_overcharge.jpg" id="33_wconf"]
 [ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://sprites/menus/play_button.svg" id="34_ulfb6"]
 [ext_resource type="AudioStream" uid="uid://jwldgek1j4qu" path="res://sounds/coins.ogg" id="36_lgnq0"]
 [ext_resource type="AudioStream" uid="uid://qledq016vl8d" path="res://sounds/crickets.ogg" id="40_8wgja"]
-[ext_resource type="Script" path="res://scenes/main_menu/music_autoplay.gd" id="40_dc1dr"]
+[ext_resource type="Script" uid="uid://crihts6y0o0j5" path="res://scenes/main_menu/music_autoplay.gd" id="40_dc1dr"]
 
 [sub_resource type="Animation" id="Animation_l2fbm"]
 length = 0.001
@@ -123,8 +123,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4608m"]
 _data = {
-"RESET": SubResource("Animation_l2fbm"),
-"gather": SubResource("Animation_ydltr")
+&"RESET": SubResource("Animation_l2fbm"),
+&"gather": SubResource("Animation_ydltr")
 }
 
 [sub_resource type="Animation" id="Animation_fim87"]
@@ -180,8 +180,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ewda"]
 _data = {
-"RESET": SubResource("Animation_fim87"),
-"city_gather": SubResource("Animation_6twm0")
+&"RESET": SubResource("Animation_fim87"),
+&"city_gather": SubResource("Animation_6twm0")
 }
 
 [sub_resource type="Animation" id="Animation_cmwd3"]
@@ -242,8 +242,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_othlw"]
 _data = {
-"RESET": SubResource("Animation_cmwd3"),
-"concert": SubResource("Animation_l1lc6")
+&"RESET": SubResource("Animation_cmwd3"),
+&"concert": SubResource("Animation_l1lc6")
 }
 
 [sub_resource type="Animation" id="Animation_dxjly"]
@@ -304,8 +304,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_edslq"]
 _data = {
-"RESET": SubResource("Animation_dxjly"),
-"concert": SubResource("Animation_jitxn")
+&"RESET": SubResource("Animation_dxjly"),
+&"concert": SubResource("Animation_jitxn")
 }
 
 [sub_resource type="Animation" id="Animation_ylr5q"]
@@ -390,8 +390,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kb3mg"]
 _data = {
-"RESET": SubResource("Animation_ylr5q"),
-"pollution": SubResource("Animation_sv3hs")
+&"RESET": SubResource("Animation_ylr5q"),
+&"pollution": SubResource("Animation_sv3hs")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vm64i"]
@@ -500,7 +500,7 @@ offset = Vector2(0, -10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="City/GatherIcons/MoneyUp"]
 libraries = {
-"": SubResource("AnimationLibrary_4608m")
+&"": SubResource("AnimationLibrary_4608m")
 }
 
 [node name="EnergyDown" type="Sprite2D" parent="City/GatherIcons"]
@@ -511,7 +511,7 @@ offset = Vector2(0, -10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="City/GatherIcons/EnergyDown"]
 libraries = {
-"": SubResource("AnimationLibrary_4608m")
+&"": SubResource("AnimationLibrary_4608m")
 }
 
 [node name="PollutionUp" type="Sprite2D" parent="City/GatherIcons"]
@@ -522,12 +522,12 @@ offset = Vector2(0, -10)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="City/GatherIcons/PollutionUp"]
 libraries = {
-"": SubResource("AnimationLibrary_4608m")
+&"": SubResource("AnimationLibrary_4608m")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="City"]
 libraries = {
-"": SubResource("AnimationLibrary_4ewda")
+&"": SubResource("AnimationLibrary_4ewda")
 }
 
 [node name="Timer" type="Timer" parent="City"]
@@ -545,7 +545,7 @@ offset = Vector2(-100, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConcertLights/ConcertLight"]
 libraries = {
-"": SubResource("AnimationLibrary_othlw")
+&"": SubResource("AnimationLibrary_othlw")
 }
 autoplay = "concert"
 
@@ -558,7 +558,7 @@ offset = Vector2(-100, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ConcertLights/ConcertLight2"]
 libraries = {
-"": SubResource("AnimationLibrary_edslq")
+&"": SubResource("AnimationLibrary_edslq")
 }
 autoplay = "concert"
 
@@ -570,7 +570,7 @@ flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pollution"]
 libraries = {
-"": SubResource("AnimationLibrary_kb3mg")
+&"": SubResource("AnimationLibrary_kb3mg")
 }
 
 [node name="World" type="Node2D" parent="."]

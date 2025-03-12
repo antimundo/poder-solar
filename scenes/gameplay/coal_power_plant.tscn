@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://bsmye6apbaer6"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_uoo3y"]
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_uoo3y"]
 [ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_b7v2b"]
 [ext_resource type="Texture2D" uid="uid://clacihq5vpd5q" path="res://sprites/items/power_plant_fire.svg" id="3_phmwj"]
 [ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="4_ubdfm"]
@@ -67,8 +67,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fir4p"]
 _data = {
-"RESET": SubResource("Animation_kyipx"),
-"fire_idle": SubResource("Animation_w683s")
+&"RESET": SubResource("Animation_kyipx"),
+&"fire_idle": SubResource("Animation_w683s")
 }
 
 [sub_resource type="Curve" id="Curve_ip616"]
@@ -220,10 +220,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l8gg"]
 _data = {
-"RESET": SubResource("Animation_v8mef"),
-"on_gathered": SubResource("Animation_h37tu"),
-"on_placed": SubResource("Animation_64qve"),
-"on_sell": SubResource("Animation_fwxko")
+&"RESET": SubResource("Animation_v8mef"),
+&"on_gathered": SubResource("Animation_h37tu"),
+&"on_placed": SubResource("Animation_64qve"),
+&"on_sell": SubResource("Animation_fwxko")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7nmv"]
@@ -265,7 +265,7 @@ offset = Vector2(0, -4.825)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PowerPlantFire"]
 libraries = {
-"": SubResource("AnimationLibrary_fir4p")
+&"": SubResource("AnimationLibrary_fir4p")
 }
 autoplay = "fire_idle"
 
@@ -273,8 +273,8 @@ autoplay = "fire_idle"
 position = Vector2(-1, -31)
 emitting = false
 amount = 4
-lifetime = 3.0
 texture = ExtResource("4_ubdfm")
+lifetime = 3.0
 direction = Vector2(1, -1)
 spread = 15.0
 gravity = Vector2(0, 0)
@@ -297,7 +297,7 @@ texture = ExtResource("7_oa2gn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2l8gg")
+&"": SubResource("AnimationLibrary_2l8gg")
 }
 
 [node name="Timer" type="Timer" parent="."]

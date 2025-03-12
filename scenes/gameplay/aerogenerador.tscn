@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://1vi1sfanjoua"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_m7g68"]
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_m7g68"]
 [ext_resource type="Texture2D" uid="uid://cswe3n8qx2jwu" path="res://sprites/items/aerogeneratort_shadow.png" id="2_4bds3"]
 [ext_resource type="Texture2D" uid="uid://nl7rpn5cvidd" path="res://sprites/items/aerogenerator.svg" id="3_epdjx"]
 [ext_resource type="Texture2D" uid="uid://dof6qsxo6ovfa" path="res://sprites/items/aerogenerator_blades.svg" id="4_1qwjo"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]
 _data = {
-"RESET": SubResource("Animation_ri107"),
-"spin": SubResource("Animation_ht2rs")
+&"RESET": SubResource("Animation_ri107"),
+&"spin": SubResource("Animation_ht2rs")
 }
 
 [sub_resource type="Animation" id="Animation_v8mef"]
@@ -191,10 +191,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l8gg"]
 _data = {
-"RESET": SubResource("Animation_v8mef"),
-"on_gathered": SubResource("Animation_h37tu"),
-"on_placed": SubResource("Animation_64qve"),
-"on_sell": SubResource("Animation_fwxko")
+&"RESET": SubResource("Animation_v8mef"),
+&"on_gathered": SubResource("Animation_h37tu"),
+&"on_placed": SubResource("Animation_64qve"),
+&"on_sell": SubResource("Animation_fwxko")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7nmv"]
@@ -232,7 +232,7 @@ offset = Vector2(-1, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/AerogeneratorBlades"]
 libraries = {
-"": SubResource("AnimationLibrary_saeju")
+&"": SubResource("AnimationLibrary_saeju")
 }
 autoplay = "spin"
 
@@ -250,7 +250,7 @@ texture = ExtResource("6_pl5x8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2l8gg")
+&"": SubResource("AnimationLibrary_2l8gg")
 }
 
 [node name="Timer" type="Timer" parent="."]

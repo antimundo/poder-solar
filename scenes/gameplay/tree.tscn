@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bac3e341auh65"]
 
-[ext_resource type="Script" path="res://scenes/gameplay/world_item.gd" id="1_j4y6h"]
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_j4y6h"]
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_27365"]
 [ext_resource type="Texture2D" uid="uid://bag8t16pfux4f" path="res://sprites/items/tree.svg" id="3_8snm2"]
 [ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://sprites/ui/gather_resource_icons/pollution_down.svg" id="4_dgs1v"]
@@ -151,10 +151,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2l8gg"]
 _data = {
-"RESET": SubResource("Animation_v8mef"),
-"on_gathered": SubResource("Animation_h37tu"),
-"on_placed": SubResource("Animation_64qve"),
-"on_sell": SubResource("Animation_fwxko")
+&"RESET": SubResource("Animation_v8mef"),
+&"on_gathered": SubResource("Animation_h37tu"),
+&"on_placed": SubResource("Animation_64qve"),
+&"on_sell": SubResource("Animation_fwxko")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7nmv"]
@@ -196,7 +196,7 @@ texture = ExtResource("4_dgs1v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2l8gg")
+&"": SubResource("AnimationLibrary_2l8gg")
 }
 
 [node name="Timer" type="Timer" parent="."]

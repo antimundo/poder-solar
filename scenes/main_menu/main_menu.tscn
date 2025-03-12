@@ -1,8 +1,8 @@
 [gd_scene load_steps=23 format=4 uid="uid://o1xj7k6rqtlu"]
 
-[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_uvv0t"]
+[ext_resource type="Script" uid="uid://d0efmhx3l6iqy" path="res://scenes/main_menu/main_menu.gd" id="1_uvv0t"]
 [ext_resource type="Texture2D" uid="uid://cnsyrjbggj5tp" path="res://sprites/menus/main_menu.svg" id="2_3s7yi"]
-[ext_resource type="Script" path="res://scenes/main_menu/music_autoplay.gd" id="2_enlrg"]
+[ext_resource type="Script" uid="uid://crihts6y0o0j5" path="res://scenes/main_menu/music_autoplay.gd" id="2_enlrg"]
 [ext_resource type="Texture2D" uid="uid://bte75qgd6lnb2" path="res://sprites/menus/game_title.svg" id="3_2gbrx"]
 [ext_resource type="Texture2D" uid="uid://lnqj5571tsu3" path="res://sprites/menus/play_button.svg" id="4_etr54"]
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="4_t2gni"]
@@ -65,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_saeju"]
 _data = {
-"RESET": SubResource("Animation_ri107"),
-"spin": SubResource("Animation_ht2rs")
+&"RESET": SubResource("Animation_ri107"),
+&"spin": SubResource("Animation_ht2rs")
 }
 
 [sub_resource type="Animation" id="Animation_lkh8f"]
@@ -103,8 +103,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h7mdb"]
 _data = {
-"RESET": SubResource("Animation_lkh8f"),
-"idle": SubResource("Animation_dhf41")
+&"RESET": SubResource("Animation_lkh8f"),
+&"idle": SubResource("Animation_dhf41")
 }
 
 [node name="MainMenu" type="Control"]
@@ -186,7 +186,7 @@ offset = Vector2(-1, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator3/Sprite/AerogeneratorBlades"]
 libraries = {
-"": SubResource("AnimationLibrary_saeju")
+&"": SubResource("AnimationLibrary_saeju")
 }
 autoplay = "spin"
 
@@ -209,7 +209,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree6/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -228,7 +228,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree7/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -247,7 +247,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree3/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -266,7 +266,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree4/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -285,7 +285,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree8/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -304,7 +304,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree5/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -323,7 +323,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -342,7 +342,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree2/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -361,7 +361,7 @@ offset = Vector2(0, -46)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Tree9/MenuTree"]
 libraries = {
-"": SubResource("AnimationLibrary_h7mdb")
+&"": SubResource("AnimationLibrary_h7mdb")
 }
 autoplay = "idle"
 
@@ -384,7 +384,7 @@ offset = Vector2(-1, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator/Sprite/AerogeneratorBlades"]
 libraries = {
-"": SubResource("AnimationLibrary_saeju")
+&"": SubResource("AnimationLibrary_saeju")
 }
 autoplay = "spin"
 
@@ -411,7 +411,7 @@ offset = Vector2(-1, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Decoration/Aerogenerator2/Sprite/AerogeneratorBlades"]
 libraries = {
-"": SubResource("AnimationLibrary_saeju")
+&"": SubResource("AnimationLibrary_saeju")
 }
 autoplay = "spin"
 

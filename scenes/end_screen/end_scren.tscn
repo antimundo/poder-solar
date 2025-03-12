@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://410qgxriyahq"]
 
-[ext_resource type="Script" path="res://scenes/end_screen/end_scren.gd" id="1_r6tf2"]
+[ext_resource type="Script" uid="uid://ns3si2mdxlsy" path="res://scenes/end_screen/end_scren.gd" id="1_r6tf2"]
 [ext_resource type="Texture2D" uid="uid://bmq0i68wu0lf4" path="res://sprites/menus/home_button.svg" id="2_mx86p"]
 [ext_resource type="Texture2D" uid="uid://domjgyedkfrcj" path="res://sprites/slides/win.jpg" id="2_nbf4u"]
 [ext_resource type="AudioStream" uid="uid://bygxugyy0s6jv" path="res://sounds/Frédéric Lardon - Cellphone - 06 dance dance fragile.ogg" id="4_nvn6p"]
-[ext_resource type="Script" path="res://scenes/main_menu/music_autoplay.gd" id="5_cpedq"]
+[ext_resource type="Script" uid="uid://crihts6y0o0j5" path="res://scenes/main_menu/music_autoplay.gd" id="5_cpedq"]
 
 [sub_resource type="Animation" id="Animation_qbj0f"]
 length = 0.001
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_co5ho"]
 _data = {
-"RESET": SubResource("Animation_qbj0f"),
-"title": SubResource("Animation_3g4bh")
+&"RESET": SubResource("Animation_qbj0f"),
+&"title": SubResource("Animation_3g4bh")
 }
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjymd"]
@@ -100,7 +100,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
 libraries = {
-"": SubResource("AnimationLibrary_co5ho")
+&"": SubResource("AnimationLibrary_co5ho")
 }
 autoplay = "title"
 

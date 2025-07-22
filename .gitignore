@@ -22,3 +22,6 @@ mono_crash.*.json
 *~
 *.blend1
 *.tmp
+
+# Project specific stuff
+builds/

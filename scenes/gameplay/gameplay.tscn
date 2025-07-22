@@ -432,12 +432,12 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qyng"]
+texture = ExtResource("34_ulfb6")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2kvj2"]
 texture = ExtResource("34_ulfb6")
 modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qyng"]
-texture = ExtResource("34_ulfb6")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kyd88"]
 texture = ExtResource("34_ulfb6")
@@ -1150,11 +1150,11 @@ offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_2kvj2")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_6qyng")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kyd88")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_2kvj2")
 theme_override_styles/normal = SubResource("StyleBoxTexture_6qyng")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2kvj2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kyd88")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6qyng")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2kvj2")
 
 [node name="Panel" type="Panel" parent="Slides"]
 layout_mode = 0
@@ -1174,11 +1174,11 @@ offset_top = 21.0
 offset_right = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
 theme_override_font_sizes/bold_italics_font_size = 26
 theme_override_font_sizes/italics_font_size = 26
 theme_override_font_sizes/mono_font_size = 26
-theme_override_font_sizes/normal_font_size = 26
-theme_override_font_sizes/bold_font_size = 26
 bbcode_enabled = true
 text = "[center]Pero tampoco te pases, demasiada electricidad producirá una [b]sobrecarga[/b]"
 autowrap_mode = 2
@@ -1197,18 +1197,6 @@ script = ExtResource("40_dc1dr")
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyAerogenerator" method="_on_money_manager_money_change"]
 [connection signal="money_change" from="Managers/MoneyManager" to="BottomPanel/BuyFactory" method="_on_money_manager_money_change"]
 [connection signal="timeout" from="City/Timer" to="City" method="_on_timer_timeout"]
-[connection signal="button_down" from="BottomPanel/BuyTree" to="BottomPanel/BuyTree" method="_on_button_down"]
-[connection signal="mouse_entered" from="BottomPanel/BuyTree" to="BottomPanel/BuyTree" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BottomPanel/BuyTree" to="BottomPanel/BuyTree" method="_on_mouse_exited"]
-[connection signal="button_down" from="BottomPanel/BuyCoalPowerPlant" to="BottomPanel/BuyCoalPowerPlant" method="_on_button_down"]
-[connection signal="mouse_entered" from="BottomPanel/BuyCoalPowerPlant" to="BottomPanel/BuyCoalPowerPlant" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BottomPanel/BuyCoalPowerPlant" to="BottomPanel/BuyCoalPowerPlant" method="_on_mouse_exited"]
-[connection signal="button_down" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_button_down"]
-[connection signal="mouse_entered" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BottomPanel/BuyAerogenerator" to="BottomPanel/BuyAerogenerator" method="_on_mouse_exited"]
-[connection signal="button_down" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_button_down"]
-[connection signal="mouse_entered" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="BottomPanel/BuyFactory" to="BottomPanel/BuyFactory" method="_on_mouse_exited"]
 [connection signal="pressed" from="Slides/Button" to="Slides" method="_on_button_pressed"]
 [connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
 [connection signal="finished" from="AudioStreamPlayerBackground" to="AudioStreamPlayerBackground" method="_on_finished"]

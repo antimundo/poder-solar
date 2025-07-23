@@ -4,7 +4,7 @@ extends Button
 @export var money_cost: int = 100
 @onready var world_items = $"../../World/WorldItems"
 
-var dialogue_tween: Tween
+var _dialogue_tween: Tween
 
 func _ready() -> void:
 	button_down.connect(_on_button_down)
@@ -20,16 +20,10 @@ func _on_button_down() -> void:
 	this_item.on_sell.connect(_on_sell)
 
 func _on_mouse_entered() -> void:
-	if dialogue_tween != null:
-		dialogue_tween.kill()
-	dialogue_tween = create_tween().set_trans(Tween.TRANS_SINE)
-	dialogue_tween.tween_property($ComicDialogue, "modulate", Color("ffffff", 1), .2)
+	_tween_dialogue(1)
 
 func _on_mouse_exited() -> void:
-	if dialogue_tween != null:
-		dialogue_tween.kill()
-	dialogue_tween = create_tween().set_trans(Tween.TRANS_SINE)
-	dialogue_tween.tween_property($ComicDialogue, "modulate", Color("ffffff", 0), .2)
+	_tween_dialogue(0)
 
 func _on_money_manager_money_change(new_quantity) -> void:
 	_check_ui(new_quantity)
@@ -45,6 +39,12 @@ func _on_resource_gathered(money: int, energy: int, pollution: int) -> void:
 func _on_sell(money: int) -> void:
 	$"../Sell".play()
 	$"../../Managers/MoneyManager".add_money(money)
+
+func _tween_dialogue(opacity: float) -> void:
+	if _dialogue_tween != null:
+		_dialogue_tween.kill()
+	_dialogue_tween = create_tween().set_trans(Tween.TRANS_SINE)
+	_dialogue_tween.tween_property($ComicDialogue, "modulate", Color("ffffff", opacity), .2)
 
 func _check_ui(available_money: int) -> void:
 	$Panel/Label.text = str(money_cost)

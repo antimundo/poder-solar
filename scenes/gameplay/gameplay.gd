@@ -6,7 +6,7 @@ extends Node
 var current_level: int = 0
 
 func _ready() -> void:
-	load_slides()
+	_load_slides()
 
 func load_end_screen(end_state: end_screen.end_states) -> void:
 	var this_scene = end_scene.instantiate()
@@ -44,9 +44,9 @@ func start_level() -> void:
 	if current_level >= 3:
 		load_end_screen(end_screen.end_states.WIN)
 	else:
-		load_slides()
+		_load_slides()
 
-func load_slides() -> void:
+func _load_slides() -> void:
 	get_tree().paused = true
 	slides.visible = true
 	slides.load_first_slide(current_level)

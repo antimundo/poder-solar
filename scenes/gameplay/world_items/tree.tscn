@@ -1,79 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bsmye6apbaer6"]
+[gd_scene load_steps=13 format=3 uid="uid://bac3e341auh65"]
 
-[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_uoo3y"]
-[ext_resource type="Texture2D" uid="uid://bag062w4o0887" path="res://sprites/items/power_plant.svg" id="2_b7v2b"]
-[ext_resource type="Texture2D" uid="uid://clacihq5vpd5q" path="res://sprites/items/power_plant_fire.svg" id="3_phmwj"]
-[ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="4_ubdfm"]
-[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="5_nwide"]
-[ext_resource type="Texture2D" uid="uid://bgokqyp4by5l4" path="res://sprites/ui/gather_resource_icons/pollution_up.svg" id="6_6eb8k"]
-[ext_resource type="Texture2D" uid="uid://322gxhlgle0r" path="res://sprites/ui/gather_resource_icons/energy_up.svg" id="7_oa2gn"]
-[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="8_p8smg"]
-
-[sub_resource type="Animation" id="Animation_kyipx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.261799]
-}
-
-[sub_resource type="Animation" id="Animation_w683s"]
-resource_name = "fire_idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(-2, -2, -2, -2),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1), Vector2(1.1, 1.1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-2, -2),
-"update": 0,
-"values": [0.0872665, -0.0872665]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fir4p"]
-_data = {
-&"RESET": SubResource("Animation_kyipx"),
-&"fire_idle": SubResource("Animation_w683s")
-}
-
-[sub_resource type="Curve" id="Curve_ip616"]
-_data = [Vector2(0, 0), 0.0, 2.19945, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_items/world_item.gd" id="1_j4y6h"]
+[ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_27365"]
+[ext_resource type="Texture2D" uid="uid://bag8t16pfux4f" path="res://sprites/items/tree.svg" id="3_8snm2"]
+[ext_resource type="Texture2D" uid="uid://ceoqx4aly3mp2" path="res://sprites/ui/gather_resource_icons/pollution_down.svg" id="4_dgs1v"]
+[ext_resource type="Texture2D" uid="uid://c7g6c8ddnqbtx" path="res://sprites/ui/money.svg" id="8_7wc4m"]
 
 [sub_resource type="Animation" id="Animation_v8mef"]
 length = 0.001
@@ -240,60 +171,28 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[node name="CoalPowerPlant" type="Node2D"]
-script = ExtResource("1_uoo3y")
-sell_price = 20
-energy = 1
-pollution = 1
-metadata/_edit_vertical_guides_ = []
-metadata/_edit_horizontal_guides_ = []
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_j4y6h")
+sell_price = 10
+pollution = -1
 
 [node name="Shadow" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(0, 6)
-texture = ExtResource("5_nwide")
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_27365")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -11)
-texture = ExtResource("2_b7v2b")
-
-[node name="PowerPlantFire" type="Sprite2D" parent="."]
-position = Vector2(-8, 0)
-rotation = -0.261799
-texture = ExtResource("3_phmwj")
-offset = Vector2(0, -4.825)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PowerPlantFire"]
-libraries = {
-&"": SubResource("AnimationLibrary_fir4p")
-}
-autoplay = "fire_idle"
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(-1, -31)
-emitting = false
-amount = 4
-texture = ExtResource("4_ubdfm")
-lifetime = 3.0
-direction = Vector2(1, -1)
-spread = 15.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 8.0
-initial_velocity_max = 16.0
-scale_amount_curve = SubResource("Curve_ip616")
-color = Color(0.196078, 0.141176, 0.0666667, 1)
+position = Vector2(0, -22)
+texture = ExtResource("3_8snm2")
 
 [node name="GatherIcons" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.5, 0.5)
 
-[node name="PollutionUp" type="Sprite2D" parent="GatherIcons"]
-position = Vector2(-17, -53)
-texture = ExtResource("6_6eb8k")
-
-[node name="EnergyUp" type="Sprite2D" parent="GatherIcons"]
-position = Vector2(14, -53)
-texture = ExtResource("7_oa2gn")
+[node name="PollutionDown" type="Sprite2D" parent="GatherIcons"]
+position = Vector2(0, -53)
+texture = ExtResource("4_dgs1v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -301,7 +200,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 
 [node name="SellButtonHitbox" type="Control" parent="."]
 layout_mode = 3
@@ -360,7 +259,7 @@ offset_top = 34.0
 offset_right = 54.0
 offset_bottom = 65.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_p8smg")
+texture = ExtResource("8_7wc4m")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="mouse_entered" from="SellButtonHitbox" to="." method="_on_sell_button_hitbox_mouse_entered"]

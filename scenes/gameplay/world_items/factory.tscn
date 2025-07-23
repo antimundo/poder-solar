@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://r5e76evkpu81"]
 
-[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_item.gd" id="1_5jba3"]
+[ext_resource type="Script" uid="uid://c1kycwh7ui5kf" path="res://scenes/gameplay/world_items/world_item.gd" id="1_5jba3"]
 [ext_resource type="Texture2D" uid="uid://d3y1hackv7pnb" path="res://sprites/items/power_plant_shadow.png" id="2_qooib"]
 [ext_resource type="Texture2D" uid="uid://ddbn7htnm214p" path="res://sprites/items/factory.svg" id="3_k2gdw"]
 [ext_resource type="Texture2D" uid="uid://7fw10b53iihe" path="res://sprites/items/circle.svg" id="5_rscuf"]

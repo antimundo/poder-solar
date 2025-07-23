@@ -410,8 +410,7 @@ expand_margin_bottom = 6.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eqs7y"]
 texture = ExtResource("4_idfva")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6dcif"]
-texture = ExtResource("4_4q46l")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ws4do"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7yvf"]
 texture = ExtResource("4_4q46l")
@@ -421,7 +420,7 @@ texture = ExtResource("4_4q46l")
 
 [sub_resource type="Theme" id="Theme_ycol2"]
 Button/styles/disabled = SubResource("StyleBoxTexture_eqs7y")
-Button/styles/focus = SubResource("StyleBoxTexture_6dcif")
+Button/styles/focus = SubResource("StyleBoxEmpty_ws4do")
 Button/styles/hover = SubResource("StyleBoxTexture_g7yvf")
 Button/styles/normal = SubResource("StyleBoxTexture_n8tgd")
 
@@ -674,7 +673,7 @@ offset_bottom = 110.0
 focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
-gameplay_item = "res://scenes/gameplay/tree.tscn"
+gameplay_item = "uid://bac3e341auh65"
 money_cost = 50
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyTree"]
@@ -782,7 +781,7 @@ offset_bottom = 110.0
 focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
-gameplay_item = "res://scenes/gameplay/coal_power_plant.tscn"
+gameplay_item = "uid://bsmye6apbaer6"
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyCoalPowerPlant"]
 layout_mode = 1
@@ -889,7 +888,7 @@ offset_bottom = 110.0
 focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
-gameplay_item = "res://scenes/gameplay/aerogenerador.tscn"
+gameplay_item = "uid://1vi1sfanjoua"
 money_cost = 150
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyAerogenerator"]
@@ -1014,7 +1013,7 @@ offset_bottom = 110.0
 focus_mode = 0
 theme = SubResource("Theme_ycol2")
 script = ExtResource("1_hqkoi")
-gameplay_item = "res://scenes/gameplay/factory.tscn"
+gameplay_item = "uid://r5e76evkpu81"
 money_cost = 200
 
 [node name="PowerPlant" type="TextureRect" parent="BottomPanel/BuyFactory"]

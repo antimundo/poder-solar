@@ -19,13 +19,22 @@ sampling_rate = 44100.0
 
 [sub_resource type="AudioStreamOggVorbis" id="AudioStreamOggVorbis_hjpdy"]
 packet_sequence = SubResource("OggPacketSequence_mwsgt")
+tags = {
+"album": "Cellphone",
+"artist": "Frédéric Lardon",
+"comm": "Visit https://chezmonplaisir.bandcamp.com",
+"comments": "Visit https://chezmonplaisir.bandcamp.com",
+"date": "2022",
+"title": "lounge de chat",
+"tracknumber": "7"
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngoh5"]
+texture = ExtResource("4_etr54")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wmlgx"]
 texture = ExtResource("4_etr54")
 modulate_color = Color(0.423529, 0.423529, 0.423529, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngoh5"]
-texture = ExtResource("4_etr54")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3cpvg"]
 texture = ExtResource("4_etr54")
@@ -159,11 +168,11 @@ offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
-theme_override_styles/focus = SubResource("StyleBoxTexture_wmlgx")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_ngoh5")
-theme_override_styles/hover = SubResource("StyleBoxTexture_3cpvg")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_wmlgx")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ngoh5")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wmlgx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3cpvg")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_ngoh5")
+theme_override_styles/focus = SubResource("StyleBoxTexture_wmlgx")
 
 [node name="Decoration" type="Node" parent="."]
 

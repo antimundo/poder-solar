@@ -50,6 +50,8 @@ func _check_ui(available_money: int) -> void:
 	$Panel/Label.text = str(money_cost)
 	disabled = available_money < money_cost
 	if disabled:
+		release_focus()
+	if disabled:
 		$Panel/Label.modulate = Color("989898")
 	else:
 		$Panel/Label.modulate = Color("c7fc76")
